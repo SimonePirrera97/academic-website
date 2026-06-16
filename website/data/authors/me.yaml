@@ -27,7 +27,7 @@ links:
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/simone-pirrera-1433401a2/
   - icon: at-symbol
-    url: mailto:simone.pirrera@polito.it?subject=request%20for%20informations
+    url: mailto:simone.pirrera@polito.it?subject=Request%20for%20information
 
 interests:
   - Wave Energy Converters
@@ -51,27 +51,29 @@ education:
       Thesis: [A polynomial optimization approach to gray-box system identification](/publications/polynomial-optimization-gray-box-system-identification/).
 
 experience:
+  - role: Marie Sklodowska-Curie Global Postdoctoral Fellow
+    org: SWELL Project
+    start: 2026-07-01
+    summary: |
+      Smart Wave Energy Conversion via Learning and Low-Cost Control.
   - role: Postdoctoral Researcher
     org: Department of Control and Computer Engineering (DAUIN), Politecnico di Torino
     start: 2025-01-01
     end: 2026-06-01
     summary: |
       Research on control, optimization, and data-driven methods for dynamical systems.
-  - role: Marie Sklodowska-Curie Global Postdoctoral Fellow
-    org: SWELL Project
-    start: 2026-07-01
-    summary: |
-      Smart Wave Energy Conversion via Learning and Low-Cost Control.
-
+ 
 skills:
   - name: Technical Skills
     items:
       - label: Python
-        level: 5
+        level: 3
+      - label: MATLAB
+        level: 4
       - label: Model Predictive Control
         level: 5
       - label: System Identification
-        level: 4
+        level: 5
   - name: Research
     items:
       - label: Data-driven Control
@@ -80,7 +82,8 @@ skills:
         level: 4
       - label: Wave Energy
         level: 4
-
+      - label: Constrained Optimization
+        level: 4  
 languages:
   - name: English
     level: 5

@@ -1,0 +1,43 @@
+# HugoBlox Theme Pack
+# Palette adapted from the official Politecnico di Torino website CSS.
+
+hugoblox:
+  meta:
+    format: "hugoblox-theme@1"
+    name: "PoliTO"
+    vendor: "local"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Politecnico di Torino inspired light and dark theme"
+
+  type: "dual"
+
+  light:
+    colors:
+      primary: "#00284B"
+      secondary: "#EF7B02"
+      neutral: "#00284B"
+    surfaces:
+      background: "#FFFFFF"
+      foreground: "#00284B"
+      header:
+        background: "#FFFFFF"
+        foreground: "#00284B"
+      footer:
+        background: "#F5F8FA"
+        foreground: "#175A7D"
+
+  dark:
+    colors:
+      primary: "#96DAEA"
+      secondary: "#EF7B02"
+      neutral: "#E6F4F8"
+    surfaces:
+      background: "#001D36"
+      foreground: "#E6F4F8"
+      header:
+        background: "#00284B"
+        foreground: "#FFFFFF"
+      footer:
+        background: "#001528"
+        foreground: "#B9E8F2"

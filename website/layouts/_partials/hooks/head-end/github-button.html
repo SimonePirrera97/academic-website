@@ -1,101 +1,168 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <style>
-  .publication-group-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2.5rem;
-    width: min(90vw, 1024px);
+  #section-resume-biography-3 .resume-biography {
+    padding-top: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    #section-resume-biography-3 .resume-biography {
+      padding-top: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #section-resume-biography-3 .resume-biography {
+      padding-top: 3rem;
+    }
+  }
+
+  .publication-topic-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    width: min(90vw, 900px);
     margin-left: 50%;
     transform: translateX(-50%);
   }
 
-  .publication-group-card {
-    display: block;
-    color: inherit;
-    text-decoration: none;
+  .publication-topic-list-left {
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 0;
+    transform: none;
   }
 
-  .publication-group-card:hover {
-    text-decoration: none;
+  @media (min-width: 768px) {
+    #section-resume-biography-3 .md\:col-span-4 {
+      position: sticky;
+      top: 6rem;
+      align-self: start;
+    }
   }
 
-  .publication-group-card-media {
-    position: relative;
-    display: block;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background:
-      linear-gradient(135deg, rgb(37 99 235 / 0.42), rgb(8 145 178 / 0.32), rgb(30 64 175 / 0.52)),
-      linear-gradient(135deg, rgb(244 244 245), rgb(228 228 231));
+  #research > .flex {
+    max-width: min(90vw, 64rem);
   }
 
-  .publication-group-card-media::after {
-    content: "";
-    position: absolute;
-    inset: 50% auto auto 50%;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 999px;
-    background: rgb(255 255 255 / 0.2);
-    transform: translate(-50%, -50%);
-    transition: transform 300ms ease;
+  #research .prose {
+    max-width: min(90vw, 58rem);
   }
 
-  .publication-group-card:hover .publication-group-card-media::after {
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-
-  .publication-group-card-body {
-    display: block;
-    padding: 2rem;
-  }
-
-  .publication-group-card-label {
+  .publication-topic-chip {
     display: inline-flex;
     align-items: center;
     border-radius: 999px;
-    background: rgb(219 234 254);
-    color: rgb(30 64 175);
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    line-height: 1rem;
-    margin-bottom: 1rem;
+    border: 1px solid rgb(0 123 161 / 0.32);
+    background: rgb(150 218 234 / 0.24);
+    color: rgb(0 40 75);
+    padding: 0.55rem 0.95rem;
+    font-size: 0.95rem;
+    font-weight: 650;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
   }
 
-  .publication-group-card-title {
-    display: block;
-    color: rgb(24 24 27);
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.25;
-    transition: color 200ms ease;
+  .publication-topic-chip:hover {
+    border-color: rgb(239 123 2 / 0.75);
+    background: rgb(239 123 2 / 0.12);
+    color: rgb(0 40 75);
+    text-decoration: none;
+    transform: translateY(-1px);
   }
 
-  .publication-group-card:hover .publication-group-card-title {
-    color: rgb(37 99 235);
+  .dark .publication-topic-chip {
+    border-color: rgb(150 218 234 / 0.34);
+    background: rgb(0 40 75 / 0.72);
+    color: rgb(185 232 242);
   }
 
-  .dark .publication-group-card-title {
-    color: rgb(244 244 245);
+  .dark .publication-topic-chip:hover {
+    border-color: rgb(239 123 2 / 0.8);
+    background: rgb(239 123 2 / 0.18);
+    color: rgb(255 255 255);
   }
 
-  .dark .publication-group-card-label {
-    background: rgb(30 58 138 / 0.4);
-    color: rgb(147 197 253);
+  .publication-page-intro {
+    margin: 0 auto 2.5rem;
+    max-width: 58rem;
+    border-left: 4px solid rgb(239 123 2 / 0.85);
+    padding: 0.25rem 0 0.25rem 1.25rem;
   }
 
-  .dark .publication-group-card-media {
-    background:
-      linear-gradient(135deg, rgb(37 99 235 / 0.42), rgb(8 145 178 / 0.32), rgb(30 64 175 / 0.52)),
-      linear-gradient(135deg, rgb(39 39 42), rgb(24 24 27));
+  .publication-page-intro p {
+    margin: 0 0 1.25rem;
+    color: rgb(0 40 75);
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+
+  .publication-page-intro .publication-page-kicker {
+    margin-bottom: 0.45rem;
+    color: rgb(0 123 161);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .dark .publication-page-intro {
+    border-left-color: rgb(239 123 2 / 0.9);
+  }
+
+  .dark .publication-page-intro p {
+    color: rgb(230 244 248);
+  }
+
+  .dark .publication-page-intro .publication-page-kicker {
+    color: rgb(150 218 234);
+  }
+
+  .pub-list-item.view-citation {
+    border-left: 3px solid rgb(0 123 161 / 0.55);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.72);
+    padding: 0.95rem 1rem 0.95rem 1.15rem;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  .pub-list-item.view-citation:hover {
+    border-left-color: rgb(239 123 2 / 0.95);
+    background: rgb(150 218 234 / 0.16);
+    transform: translateX(2px);
+  }
+
+  .pub-list-item.view-citation .pub-icon {
+    color: rgb(0 123 161);
+    opacity: 0.8;
+  }
+
+  .pub-list-item.view-citation a.underline {
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.16em;
+  }
+
+  .dark .pub-list-item.view-citation {
+    border-left-color: rgb(150 218 234 / 0.42);
+    background: rgb(0 40 75 / 0.56);
+  }
+
+  .dark .pub-list-item.view-citation:hover {
+    border-left-color: rgb(239 123 2 / 0.9);
+    background: rgb(0 29 54 / 0.82);
+  }
+
+  .dark .pub-list-item.view-citation .pub-icon {
+    color: rgb(150 218 234);
   }
 
   .cursor-default a,
   .publication-linked-education {
     cursor: pointer;
     text-decoration: underline;
-    text-decoration-color: rgb(147 197 253);
+    text-decoration-color: rgb(0 123 161 / 0.5);
     text-underline-offset: 0.18em;
   }
 </style>

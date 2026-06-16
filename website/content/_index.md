@@ -34,6 +34,7 @@ sections:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
         shape: circle # Options: circle (default), square, rounded
   - block: markdown
+    id: research
     content:
       title: 'Research'
       subtitle: ''
@@ -45,54 +46,18 @@ sections:
         The project combines nonlinear hydrodynamic modeling, efficient MPC design, experimental validation, and open-source software to help make wave energy more competitive.
     design:
       columns: '1'
-  - block: markdown
-    id: papers
-    content:
-      title: Papers
-      text: |-
-        <div class="publication-group-grid">
-          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/wave-energy-converters/">
-            <span class="publication-group-card-media"></span>
-            <span class="publication-group-card-body">
-              <span class="publication-group-card-label">Research Area</span>
-              <span class="publication-group-card-title">Wave Energy Converters</span>
-            </span>
-          </a>
-          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/model-predictive-control/">
-            <span class="publication-group-card-media"></span>
-            <span class="publication-group-card-body">
-              <span class="publication-group-card-label">Research Area</span>
-              <span class="publication-group-card-title">Model Predictive Control</span>
-            </span>
-          </a>
-          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/data-driven-control/">
-            <span class="publication-group-card-media"></span>
-            <span class="publication-group-card-body">
-              <span class="publication-group-card-label">Research Area</span>
-              <span class="publication-group-card-title">Data-Driven Control</span>
-            </span>
-          </a>
-          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/constrained-optimization/">
-            <span class="publication-group-card-media"></span>
-            <span class="publication-group-card-body">
-              <span class="publication-group-card-label">Research Area</span>
-              <span class="publication-group-card-title">Constrained Optimization</span>
-            </span>
-          </a>
-          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/system-identification/">
-            <span class="publication-group-card-media"></span>
-            <span class="publication-group-card-body">
-              <span class="publication-group-card-label">Research Area</span>
-              <span class="publication-group-card-title">System Identification</span>
-            </span>
-          </a>
-        </div>
-    design:
-      columns: '1'
   - block: collection
+    id: recent-publications
     content:
       title: Recent Publications
-      text: ''
+      text: |-
+        <span class="publication-topic-list" aria-label="Research topics">
+          <a class="publication-topic-chip" href="/tags/wave-energy-converters/">Wave Energy Converters</a>
+          <a class="publication-topic-chip" href="/tags/model-predictive-control/">Model Predictive Control</a>
+          <a class="publication-topic-chip" href="/tags/data-driven-control/">Data-Driven Control</a>
+          <a class="publication-topic-chip" href="/tags/constrained-optimization/">Constrained Optimization</a>
+          <a class="publication-topic-chip" href="/tags/system-identification/">System Identification</a>
+        </span>
       filters:
         folders:
           - publications

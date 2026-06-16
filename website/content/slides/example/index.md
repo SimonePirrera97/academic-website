@@ -340,7 +340,6 @@ This slide won't appear in the presentation but remains in source for reference.
 ### Questions?
 
 - 🌐 Website: [hugoblox.com](https://hugoblox.com)
-- 🐦 X/Twitter: [@GoOwnable](https://twitter.com/GoOwnable)
 - 💬 Discord: [Join Community](https://discord.gg/z8wNYzb)
 - ⭐ GitHub: [Star us!](https://github.com/HugoBlox/kit)
 
@@ -413,7 +412,7 @@ Add copyright, conference name, or any persistent text:
 ```yaml
 branding:
   footer:
-    text: "© 2024 Your Name · ICML 2024"
+    text: "© 2026 Simone Pirrera · ICML 2024"
     position: "bottom-center"
 ```
 
@@ -482,4 +481,3 @@ Or just the footer (author + footer text):
 4. Use `<!-- no-branding -->` for special slides
 
 **Pro tip:** Set site-wide defaults in `config/_default/params.yaml` under `slides.branding`!
-
