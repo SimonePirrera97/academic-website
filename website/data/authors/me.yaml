@@ -1,0 +1,80 @@
+schema: hugoblox/author/v1
+slug: me
+is_owner: true
+name:
+  display: Simone Pirrera
+  given: Simone
+  family: Pirrera
+  alternate: ''  # Example: 王伟
+  pronunciation: ''  # Example: Wáng Wěi
+  pronouns: ''
+postnominals:
+status:
+  icon: ""
+role: Marie Sklodowska-Curie Postdoctoral Fellow
+bio: |
+  Simone Pirrera works on control, optimization, and data-driven methods for
+  dynamical systems, with applications ranging from wave energy converters to
+  power electronics and constrained optimization.
+
+affiliations:
+  - name: Politecnico di Torino
+    url: https://www.polito.it/
+
+links:
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=06HHufQAAAAJ&hl=en
+
+interests:
+  - Wave energy converters
+  - Model predictive control
+  - Data-driven control
+  - Constrained optimization
+  - System identification
+
+education:
+  - degree: PhD in Control and Optimization
+    institution: Politecnico di Torino
+    end: 2025-01-01
+    summary: |
+      Dissertation: Optimization methods for dynamical systems learning.
+
+experience:
+  - role: Marie Sklodowska-Curie Postdoctoral Fellow
+    org: SWELL Project
+    start: 2025-01-01
+    summary: |
+      Smart Wave Energy Conversion via Learning and Low-Cost Control.
+
+skills:
+  - name: Technical Skills
+    items:
+      - label: Python
+        level: 5
+      - label: Model Predictive Control
+        level: 5
+      - label: System Identification
+        level: 4
+  - name: Research
+    items:
+      - label: Data-driven Control
+        level: 5
+      - label: Optimization
+        level: 4
+      - label: Wave Energy
+        level: 4
+
+languages:
+  - name: English
+    level: 5
+    label: Fluent
+  - name: Italian
+    level: 5
+    label: Native
+
+awards:
+  - title: Marie Sklodowska-Curie Postdoctoral Fellowship
+    awarder: European Union Horizon Europe
+    date: "2025-01-01"
+    summary: Awarded for the SWELL project on smart wave energy conversion.
+    icon: hero/trophy
