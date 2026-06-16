@@ -6,11 +6,13 @@ date: "2025-01-01T00:00:00Z"
 publishDate: "2025-01-01T00:00:00Z"
 publication_types: ["thesis"]
 publication:
-  name: "Politecnico di Torino"
+  name: "Department of Control and Computer Engineering (DAUIN), Politecnico di Torino"
 peer_reviewed: false
 open_access: false
 tags:
-  - Dynamical systems
+  - System Identification
+  - Constrained Optimization
+  - Dynamical Systems
   - Optimization
   - Learning
 featured: false

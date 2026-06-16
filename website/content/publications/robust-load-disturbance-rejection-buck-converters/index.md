@@ -16,9 +16,10 @@ peer_reviewed: false
 open_access: true
 summary: "Google Scholar citations: 2."
 tags:
-  - Robust control
-  - Buck converters
-  - Disturbance rejection
+  - Model Predictive Control
+  - Robust Control
+  - Buck Converters
+  - Disturbance Rejection
 featured: true
 hugoblox:
   ids:

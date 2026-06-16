@@ -15,7 +15,8 @@ peer_reviewed: true
 open_access: false
 summary: "Google Scholar citations: 2."
 tags:
-  - Polynomial optimization
+  - Constrained Optimization
+  - Polynomial Optimization
   - ADMM
 featured: false
 links:

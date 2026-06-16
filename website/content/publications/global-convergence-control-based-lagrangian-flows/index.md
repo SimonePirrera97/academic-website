@@ -15,9 +15,10 @@ publication:
 peer_reviewed: false
 open_access: true
 tags:
-  - Non-convex optimization
-  - Lagrangian flows
-  - Feedback control
+  - Constrained Optimization
+  - Non-Convex Optimization
+  - Lagrangian Flows
+  - Feedback Control
 featured: true
 hugoblox:
   ids:

@@ -16,9 +16,9 @@ peer_reviewed: false
 open_access: true
 summary: "Google Scholar citations: 2."
 tags:
-  - Model predictive control
-  - Analog implementation
-  - Buck converters
+  - Model Predictive Control
+  - Analog Implementation
+  - Buck Converters
 featured: true
 hugoblox:
   ids:

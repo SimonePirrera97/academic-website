@@ -12,8 +12,8 @@ publication:
 peer_reviewed: true
 open_access: false
 tags:
-  - Controlled multipliers optimization
-  - Constrained optimization
+  - Constrained Optimization
+  - Controlled Multipliers Optimization
 featured: false
 links:
   - type: custom

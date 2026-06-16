@@ -15,8 +15,9 @@ peer_reviewed: true
 open_access: false
 summary: "Google Scholar citations: 4."
 tags:
-  - Set-membership identification
-  - Continuous-time systems
+  - System Identification
+  - Set-Membership Identification
+  - Continuous-Time Systems
 featured: false
 links:
   - type: custom

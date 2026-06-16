@@ -13,9 +13,9 @@ publication:
 peer_reviewed: false
 open_access: true
 tags:
-  - System identification
-  - Simulation error
-  - Constrained optimization
+  - System Identification
+  - Simulation Error
+  - Constrained Optimization
 featured: false
 hugoblox:
   ids:

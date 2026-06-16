@@ -14,9 +14,9 @@ peer_reviewed: true
 open_access: false
 summary: "Google Scholar citations: 24."
 tags:
-  - Constrained optimization
-  - Feedback control
-  - Lagrange multipliers
+  - Constrained Optimization
+  - Feedback Control
+  - Lagrange Multipliers
 featured: true
 links:
   - type: custom

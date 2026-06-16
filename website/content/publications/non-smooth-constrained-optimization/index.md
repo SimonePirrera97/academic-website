@@ -14,8 +14,8 @@ publication:
 peer_reviewed: false
 open_access: true
 tags:
-  - Non-smooth optimization
-  - Constrained optimization
+  - Constrained Optimization
+  - Non-Smooth Optimization
 featured: false
 hugoblox:
   ids:

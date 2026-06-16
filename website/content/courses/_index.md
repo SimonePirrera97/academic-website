@@ -1,6 +1,6 @@
 ---
-title: Courses
-summary: My courses
+title: Teaching
+summary: Teaching activities
 type: landing
 
 cascade:
@@ -14,7 +14,7 @@ sections:
   - block: collection
     id: courses
     content:
-      title: Courses
+      title: Teaching
       filters:
         tag: Course
         kinds:

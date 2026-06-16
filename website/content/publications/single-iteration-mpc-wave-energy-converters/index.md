@@ -13,9 +13,8 @@ publication:
 peer_reviewed: false
 open_access: true
 tags:
-  - Wave energy converters
-  - Model predictive control
-  - SWELL
+  - Wave Energy Converters
+  - Model Predictive Control
 featured: true
 hugoblox:
   ids:

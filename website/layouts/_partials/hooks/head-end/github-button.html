@@ -1,1 +1,147 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<style>
+  .publication-group-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    width: min(90vw, 1024px);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .publication-group-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .publication-group-card:hover {
+    text-decoration: none;
+  }
+
+  .publication-group-card-media {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background:
+      linear-gradient(135deg, rgb(37 99 235 / 0.42), rgb(8 145 178 / 0.32), rgb(30 64 175 / 0.52)),
+      linear-gradient(135deg, rgb(244 244 245), rgb(228 228 231));
+  }
+
+  .publication-group-card-media::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.2);
+    transform: translate(-50%, -50%);
+    transition: transform 300ms ease;
+  }
+
+  .publication-group-card:hover .publication-group-card-media::after {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .publication-group-card-body {
+    display: block;
+    padding: 2rem;
+  }
+
+  .publication-group-card-label {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    background: rgb(219 234 254);
+    color: rgb(30 64 175);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .publication-group-card-title {
+    display: block;
+    color: rgb(24 24 27);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+    transition: color 200ms ease;
+  }
+
+  .publication-group-card:hover .publication-group-card-title {
+    color: rgb(37 99 235);
+  }
+
+  .dark .publication-group-card-title {
+    color: rgb(244 244 245);
+  }
+
+  .dark .publication-group-card-label {
+    background: rgb(30 58 138 / 0.4);
+    color: rgb(147 197 253);
+  }
+
+  .dark .publication-group-card-media {
+    background:
+      linear-gradient(135deg, rgb(37 99 235 / 0.42), rgb(8 145 178 / 0.32), rgb(30 64 175 / 0.52)),
+      linear-gradient(135deg, rgb(39 39 42), rgb(24 24 27));
+  }
+
+  .cursor-default a,
+  .publication-linked-education {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: rgb(147 197 253);
+    text-underline-offset: 0.18em;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const interestLinks = {
+      'Wave Energy Converters': '/tags/wave-energy-converters/',
+      'Model Predictive Control': '/tags/model-predictive-control/',
+      'Data-Driven Control': '/tags/data-driven-control/',
+      'Constrained Optimization': '/tags/constrained-optimization/',
+      'System Identification': '/tags/system-identification/'
+    };
+
+    document.querySelectorAll('.ul-interests li, span.cursor-default').forEach((item) => {
+      const label = item.textContent.trim();
+      const href = interestLinks[label];
+      if (!href || item.querySelector('a')) return;
+
+      const link = document.createElement('a');
+      link.href = href;
+      link.textContent = label;
+      item.textContent = '';
+      item.appendChild(link);
+    });
+
+    document.querySelectorAll('p, h3').forEach((item) => {
+      const match = item.textContent.trim().match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (!match || item.querySelector('a')) return;
+
+      const link = document.createElement('a');
+      link.href = match[2];
+      link.textContent = match[1];
+      link.className = 'publication-linked-education';
+      item.textContent = '';
+      item.appendChild(link);
+    });
+
+    const formatDate = (value) => {
+      const date = new Date(`${value}T00:00:00`);
+      return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    };
+
+    document.querySelectorAll('p').forEach((item) => {
+      const match = item.innerHTML.trim().match(/^(\d{4}-\d{2}-\d{2})<br>(\d{4}-\d{2}-\d{2})$/);
+      if (!match) return;
+      item.textContent = `${formatDate(match[1])} - ${formatDate(match[2])}`;
+    });
+  });
+</script>

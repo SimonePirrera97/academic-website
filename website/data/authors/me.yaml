@@ -11,38 +11,55 @@ name:
 postnominals:
 status:
   icon: ""
-role: Marie Sklodowska-Curie Postdoctoral Fellow
+role: Marie Sklodowska-Curie Global Postdoctoral Fellow
 bio: |
   Simone Pirrera works on control, optimization, and data-driven methods for
   dynamical systems, with applications ranging from wave energy converters to
   power electronics and constrained optimization.
 
 affiliations:
-  - name: Politecnico di Torino
+  - name: Department of Control and Computer Engineering (DAUIN), Politecnico di Torino
     url: https://www.polito.it/
 
 links:
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=06HHufQAAAAJ&hl=en
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/simone-pirrera-1433401a2/
+  - icon: at-symbol
+    url: mailto:simone.pirrera@polito.it?subject=request%20for%20informations
 
 interests:
-  - Wave energy converters
-  - Model predictive control
-  - Data-driven control
-  - Constrained optimization
-  - System identification
+  - Wave Energy Converters
+  - Model Predictive Control
+  - Data-Driven Control
+  - Constrained Optimization
+  - System Identification
 
 education:
-  - degree: PhD in Control and Optimization
-    institution: Politecnico di Torino
-    end: 2025-01-01
+  - degree: "[PhD in Control and Optimization](/publications/optimization-methods-dynamical-systems-learning/)"
+    institution: Department of Control and Computer Engineering (DAUIN), Politecnico di Torino
+    start: 2021-11-01
+    end: 2025-05-01
     summary: |
-      Dissertation: Optimization methods for dynamical systems learning.
+      Dissertation: [Optimization methods for dynamical systems learning](/publications/optimization-methods-dynamical-systems-learning/).
+  - degree: "[Master Degree in Mechatronic Engineering](/publications/polynomial-optimization-gray-box-system-identification/)"
+    institution: Politecnico di Torino
+    start: 2019-10-01
+    end: 2021-07-01
+    summary: |
+      Thesis: [A polynomial optimization approach to gray-box system identification](/publications/polynomial-optimization-gray-box-system-identification/).
 
 experience:
-  - role: Marie Sklodowska-Curie Postdoctoral Fellow
-    org: SWELL Project
+  - role: Postdoctoral Researcher
+    org: Department of Control and Computer Engineering (DAUIN), Politecnico di Torino
     start: 2025-01-01
+    end: 2026-06-01
+    summary: |
+      Research on control, optimization, and data-driven methods for dynamical systems.
+  - role: Marie Sklodowska-Curie Global Postdoctoral Fellow
+    org: SWELL Project
+    start: 2026-07-01
     summary: |
       Smart Wave Energy Conversion via Learning and Low-Cost Control.
 
@@ -73,7 +90,7 @@ languages:
     label: Native
 
 awards:
-  - title: Marie Sklodowska-Curie Postdoctoral Fellowship
+  - title: Marie Sklodowska-Curie Global Postdoctoral Fellowship
     awarder: European Union Horizon Europe
     date: "2025-01-01"
     summary: Awarded for the SWELL project on smart wave energy conversion.

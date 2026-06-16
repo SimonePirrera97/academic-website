@@ -15,9 +15,10 @@ peer_reviewed: true
 open_access: false
 summary: "Google Scholar citations: 9."
 tags:
-  - Convex optimization
-  - Inequality constraints
-  - Feedback control
+  - Constrained Optimization
+  - Convex Optimization
+  - Inequality Constraints
+  - Feedback Control
 featured: true
 links:
   - type: custom

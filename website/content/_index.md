@@ -40,22 +40,55 @@ sections:
       text: |-
         My research focuses on control, optimization, and learning for dynamical systems.
 
-        I coordinate SWELL, Smart Wave Energy Conversion via Learning and Low-Cost Control, a Marie Sklodowska-Curie Postdoctoral Fellowship project developing data-driven model predictive control for wave energy converters.
+        I coordinate SWELL, Smart Wave Energy Conversion via Learning and Low-Cost Control, a Marie Sklodowska-Curie Global Postdoctoral Fellowship project developing data-driven model predictive control for wave energy converters.
 
         The project combines nonlinear hydrodynamic modeling, efficient MPC design, experimental validation, and open-source software to help make wave energy more competitive.
     design:
       columns: '1'
-  - block: collection
+  - block: markdown
     id: papers
     content:
-      title: Featured Publications
-      filters:
-        folders:
-          - publications
-        featured_only: true
+      title: Papers
+      text: |-
+        <div class="publication-group-grid">
+          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/wave-energy-converters/">
+            <span class="publication-group-card-media"></span>
+            <span class="publication-group-card-body">
+              <span class="publication-group-card-label">Research Area</span>
+              <span class="publication-group-card-title">Wave Energy Converters</span>
+            </span>
+          </a>
+          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/model-predictive-control/">
+            <span class="publication-group-card-media"></span>
+            <span class="publication-group-card-body">
+              <span class="publication-group-card-label">Research Area</span>
+              <span class="publication-group-card-title">Model Predictive Control</span>
+            </span>
+          </a>
+          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/data-driven-control/">
+            <span class="publication-group-card-media"></span>
+            <span class="publication-group-card-body">
+              <span class="publication-group-card-label">Research Area</span>
+              <span class="publication-group-card-title">Data-Driven Control</span>
+            </span>
+          </a>
+          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/constrained-optimization/">
+            <span class="publication-group-card-media"></span>
+            <span class="publication-group-card-body">
+              <span class="publication-group-card-label">Research Area</span>
+              <span class="publication-group-card-title">Constrained Optimization</span>
+            </span>
+          </a>
+          <a class="publication-group-card group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" href="/tags/system-identification/">
+            <span class="publication-group-card-media"></span>
+            <span class="publication-group-card-body">
+              <span class="publication-group-card-label">Research Area</span>
+              <span class="publication-group-card-title">System Identification</span>
+            </span>
+          </a>
+        </div>
     design:
-      view: article-grid
-      columns: 2
+      columns: '1'
   - block: collection
     content:
       title: Recent Publications

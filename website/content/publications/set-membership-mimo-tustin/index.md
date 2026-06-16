@@ -13,9 +13,10 @@ publication:
 peer_reviewed: false
 open_access: true
 tags:
-  - Set-membership identification
-  - MIMO systems
-  - Tustin discretization
+  - System Identification
+  - Set-Membership Identification
+  - MIMO Systems
+  - Tustin Discretization
 featured: false
 hugoblox:
   ids:

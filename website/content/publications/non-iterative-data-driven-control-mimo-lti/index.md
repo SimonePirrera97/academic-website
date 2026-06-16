@@ -16,9 +16,9 @@ peer_reviewed: true
 open_access: true
 summary: "Google Scholar citations: 6."
 tags:
-  - Data-driven control
-  - MIMO systems
-  - LTI systems
+  - Data-Driven Control
+  - MIMO Systems
+  - LTI Systems
 featured: true
 links:
   - type: custom

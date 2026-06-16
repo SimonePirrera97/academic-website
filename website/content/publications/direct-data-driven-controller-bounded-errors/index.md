@@ -15,8 +15,8 @@ peer_reviewed: true
 open_access: false
 summary: "Google Scholar citations: 1."
 tags:
-  - Data-driven control
-  - Errors-in-variables
+  - Data-Driven Control
+  - Errors-in-Variables
 featured: false
 links:
   - type: custom
