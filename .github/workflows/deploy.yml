@@ -28,7 +28,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v6
       with:
-        sparse-checkout: hugoblox.yaml
+        sparse-checkout: website/hugoblox.yaml
         sparse-checkout-cone-mode: false
 
     - name: Check deploy host
@@ -45,7 +45,7 @@ jobs:
         sudo chmod +x /usr/local/bin/yq
         
         # Read deploy.host from hugoblox.yaml, default to github-pages
-        HOST=$(yq '.deploy.host // ""' hugoblox.yaml 2>/dev/null | grep -v '^null$' || true)
+        HOST=$(yq '.deploy.host // ""' website/hugoblox.yaml 2>/dev/null | grep -v '^null$' || true)
         HOST=${HOST:-github-pages}
         
         # Validate known hosts
