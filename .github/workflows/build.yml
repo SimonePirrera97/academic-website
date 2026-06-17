@@ -128,18 +128,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-hugo-resources-
 
-    - name: Setup Pages
-      id: pages
-      uses: actions/configure-pages@v5
-
     - name: Build with Hugo
       working-directory: ${{ env.SITE_DIR }}
       env:
         HUGO_ENVIRONMENT: production
         HUGO_BLOX_LICENSE: ${{ secrets.HUGO_BLOX_LICENSE }}
+        BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
       run: |
         echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
-        hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        hugo --minify --baseURL "$BASE_URL"
 
     - name: Generate Pagefind search index (if applicable)
       working-directory: ${{ env.SITE_DIR }}
