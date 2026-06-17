@@ -16,7 +16,7 @@ tags:
 featured: false
 links:
   - type: custom
-    label: Scholar
+    name: Scholar
     url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:9yKSN-GCB0IC"
 projects: []
 slides: ""

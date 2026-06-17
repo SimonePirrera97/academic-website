@@ -24,11 +24,10 @@ hugoblox:
   ids:
     arxiv: "2509.05463"
 links:
-  - type: preprint
-    provider: arxiv
-    id: "2509.05463"
+  - name: arXiv
+    url: "https://arxiv.org/abs/2509.05463"
   - type: custom
-    label: Scholar
+    name: Scholar
     url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC"
 projects: []
 slides: ""
