@@ -63,7 +63,7 @@ sections:
           - publications
         exclude_featured: false
     design:
-      view: compact
+      view: article-grid
   - block: cta-card
     demo: true # Only display this section in the HugoBlox Kit demo site
     content:
