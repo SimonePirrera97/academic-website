@@ -46,6 +46,12 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
+    - name: Setup Go
+      uses: actions/setup-go@v6
+      with:
+        go-version-file: ${{ env.SITE_DIR }}/go.mod
+        cache-dependency-path: ${{ env.SITE_DIR }}/go.sum
+
     - name: Setup pnpm
       if: hashFiles('website/package.json') != ''
       uses: pnpm/action-setup@v6
@@ -148,6 +154,7 @@ jobs:
 
     - name: Upload artifact
       id: upload
+      if: ${{ !env.ACT }}
       uses: actions/upload-pages-artifact@v4
       with:
         path: ./website/public
