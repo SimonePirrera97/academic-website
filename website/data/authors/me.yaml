@@ -44,13 +44,13 @@ education:
     start: 2021-11-01
     end: 2025-05-01
     summary: |
-      Dissertation: Optimization methods for dynamical systems learning. [View/download thesis](/uploads/phd_thesis.pdf).
+      Dissertation: Optimization methods for dynamical systems learning. <a href="/uploads/phd_thesis.pdf" download>Download thesis</a>.
   - degree: Master Degree in Mechatronic Engineering
     institution: Politecnico di Torino
     start: 2019-10-01
     end: 2021-07-01
     summary: |
-      Thesis: A polynomial optimization approach to gray-box system identification. [View/download thesis](/uploads/master_thesis.pdf).
+      Thesis: A polynomial optimization approach to gray-box system identification. <a href="/uploads/master_thesis.pdf" download>Download thesis</a>.
 
 experience:
   - role: Marie Sklodowska-Curie Global Postdoctoral Fellow
