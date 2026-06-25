@@ -1,5 +1,10 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <style>
+  html,
+  body {
+    background-color: rgb(226 240 255);
+  }
+
   #section-resume-biography-3 .resume-biography {
     padding-top: 1.5rem;
   }
@@ -17,20 +22,247 @@
   }
 
   .publication-topic-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-    width: min(90vw, 900px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1rem;
+    width: min(92vw, 72rem);
     margin-left: 50%;
     transform: translateX(-50%);
   }
 
   .publication-topic-list-left {
-    justify-content: flex-start;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 18rem));
     width: 100%;
     margin-left: 0;
     transform: none;
+  }
+
+  .publication-topic-list-large {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1.25rem;
+    width: min(94vw, 82rem);
+    margin-top: 0.5rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .papers-page .page-body > .flex.flex-col.items-center {
+    display: none;
+  }
+
+  .papers-display-control {
+    width: min(94vw, 82rem);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .papers-display-control > input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .papers-display-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+    margin: 0 auto 1.35rem;
+    max-width: 44rem;
+    border: 1px solid rgb(0 123 161 / 0.24);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.78);
+    padding: 0.35rem;
+  }
+
+  .papers-display-tabs label {
+    margin: 0;
+    border-radius: 6px;
+    color: rgb(0 40 75);
+    cursor: pointer;
+    font-size: 0.98rem;
+    font-weight: 750;
+    line-height: 1.2;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  }
+
+  #papers-display-categories:checked ~ .papers-display-tabs label[for="papers-display-categories"],
+  #papers-display-recent:checked ~ .papers-display-tabs label[for="papers-display-recent"] {
+    background: rgb(0 40 75);
+    color: rgb(255 255 255);
+    box-shadow: 0 8px 18px rgb(0 40 75 / 0.18);
+  }
+
+  .papers-display-panel {
+    display: none;
+  }
+
+  #papers-display-categories:checked ~ .papers-display-categories,
+  #papers-display-recent:checked ~ .papers-display-recent {
+    display: block;
+  }
+
+  .selected-contribution-list {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0 0 2.75rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .selected-contribution-list li {
+    display: grid;
+    gap: 0.35rem;
+    border-left: 4px solid rgb(0 123 161 / 0.65);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.86);
+    padding: 1rem 1.1rem;
+    box-shadow: 0 8px 22px rgb(0 40 75 / 0.07);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .selected-contribution-list li:hover {
+    border-left-color: rgb(239 123 2 / 0.95);
+    box-shadow: 0 12px 28px rgb(0 40 75 / 0.11);
+    transform: translateX(2px);
+  }
+
+  .selected-contribution-list a {
+    color: rgb(0 40 75);
+    font-size: 1rem;
+    font-weight: 750;
+    line-height: 1.35;
+    text-decoration: none;
+  }
+
+  .selected-contribution-list a:hover {
+    color: rgb(0 123 161);
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+  }
+
+  .selected-contribution-list span {
+    color: rgb(63 85 105);
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1.25;
+  }
+
+  .project-panel-list {
+    width: min(92vw, 58rem);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .project-panel {
+    display: grid;
+    grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    border: 1px solid rgb(0 123 161 / 0.18);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.9);
+    padding: 1.25rem;
+    box-shadow: 0 12px 30px rgb(0 40 75 / 0.08);
+  }
+
+  .project-panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .project-panel-link {
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .project-panel-link:hover {
+    border-color: rgb(239 123 2 / 0.75);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 16px 34px rgb(0 40 75 / 0.12);
+    transform: translateY(-3px);
+  }
+
+  .project-panel-body {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .project-detail {
+    display: grid;
+    grid-template-columns: minmax(11rem, 16rem) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: center;
+    width: min(92vw, 62rem);
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgb(0 123 161 / 0.18);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.9);
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgb(0 40 75 / 0.08);
+  }
+
+  .project-detail img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .project-detail-body {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .project-panel-kicker,
+  .project-panel-body h2,
+  .project-panel-body p,
+  .project-detail-body h2,
+  .project-detail-body p {
+    margin: 0;
+  }
+
+  .project-panel-kicker {
+    color: rgb(0 123 161);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .project-panel-body h2,
+  .project-detail-body h2 {
+    color: rgb(0 40 75);
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+  }
+
+  .project-panel-body p,
+  .project-detail-body p {
+    color: rgb(42 65 84);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 640px) {
+    .papers-display-tabs {
+      grid-template-columns: 1fr;
+    }
+
+    .project-panel,
+    .project-detail {
+      grid-template-columns: 1fr;
+    }
+
+    .project-panel img,
+    .project-detail img {
+      max-width: 13rem;
+    }
   }
 
   @media (min-width: 768px) {
@@ -62,6 +294,139 @@
     line-height: 1.2;
     text-decoration: none;
     transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  }
+
+  .publication-topic-card {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgb(0 123 161 / 0.18);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.9);
+    color: rgb(0 40 75);
+    text-decoration: none;
+    box-shadow: 0 10px 28px rgb(0 40 75 / 0.08);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .publication-topic-card:hover {
+    border-color: rgb(239 123 2 / 0.75);
+    color: rgb(0 40 75);
+    text-decoration: none;
+    box-shadow: 0 16px 34px rgb(0 40 75 / 0.12);
+    transform: translateY(-3px);
+  }
+
+  .publication-topic-media {
+    display: block;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    background-color: rgb(150 218 234 / 0.18);
+    background-image: var(--topic-image);
+    background-position: center;
+    background-size: cover;
+  }
+
+  .publication-topic-body {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem;
+  }
+
+  .publication-topic-name {
+    font-size: 1.05rem;
+    font-weight: 750;
+    line-height: 1.25;
+  }
+
+  .publication-topic-total {
+    color: rgb(0 123 161);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .publication-topic-counts {
+    color: rgb(63 85 105);
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .publication-topic-list-large .publication-topic-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .publication-topic-list-large .publication-topic-body {
+    gap: 0.45rem;
+    padding: 1.2rem;
+  }
+
+  .publication-topic-list-large .publication-topic-name {
+    font-size: 1.2rem;
+  }
+
+  .publication-topic-list-large .publication-topic-total {
+    font-size: 1.02rem;
+  }
+
+  .publication-topic-list-large .publication-topic-counts {
+    font-size: 0.95rem;
+  }
+
+  .dark .publication-topic-card {
+    border-color: rgb(150 218 234 / 0.28);
+    background: rgb(0 40 75 / 0.72);
+    color: rgb(230 244 248);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 0.25);
+  }
+
+  .dark .publication-topic-card:hover {
+    border-color: rgb(239 123 2 / 0.8);
+    color: rgb(255 255 255);
+    box-shadow: 0 16px 34px rgb(0 0 0 / 0.32);
+  }
+
+  .dark .publication-topic-media {
+    background-color: rgb(0 29 54 / 0.8);
+  }
+
+  .dark .publication-topic-total {
+    color: rgb(150 218 234);
+  }
+
+  .dark .publication-topic-counts {
+    color: rgb(202 224 232);
+  }
+
+  .dark .papers-display-tabs,
+  .dark .selected-contribution-list li,
+  .dark .project-panel,
+  .dark .project-detail {
+    border-color: rgb(150 218 234 / 0.28);
+    background: rgb(0 40 75 / 0.72);
+  }
+
+  .dark .papers-display-tabs label,
+  .dark .selected-contribution-list a,
+  .dark .project-panel-body h2,
+  .dark .project-detail-body h2 {
+    color: rgb(230 244 248);
+  }
+
+  .dark #papers-display-categories:checked ~ .papers-display-tabs label[for="papers-display-categories"],
+  .dark #papers-display-recent:checked ~ .papers-display-tabs label[for="papers-display-recent"] {
+    background: rgb(239 123 2 / 0.88);
+  }
+
+  .dark .selected-contribution-list span,
+  .dark .project-panel-body p,
+  .dark .project-detail-body p {
+    color: rgb(202 224 232);
+  }
+
+  .dark .project-panel-kicker {
+    color: rgb(150 218 234);
   }
 
   .publication-topic-chip:hover {
@@ -168,6 +533,10 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('.papers-display-control')) {
+      document.body.classList.add('papers-page');
+    }
+
     const interestLinks = {
       'Wave Energy Converters': '/tags/wave-energy-converters/',
       'Model Predictive Control': '/tags/model-predictive-control/',

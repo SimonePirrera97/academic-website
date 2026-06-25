@@ -18,7 +18,7 @@ sections:
       headings:
         about: ''
         education: ''
-        interests: ''
+        interests: Research interests
     design:
       # Use the new Gradient Mesh which automatically adapts to the selected theme colors
       background:
@@ -33,37 +33,6 @@ sections:
       avatar:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
         shape: circle # Options: circle (default), square, rounded
-  - block: markdown
-    id: research
-    content:
-      title: 'Research'
-      subtitle: ''
-      text: |-
-        My research focuses on control, optimization, and learning for dynamical systems.
-
-        I coordinate SWELL, Smart Wave Energy Conversion via Learning and Low-Cost Control, a Marie Sklodowska-Curie Global Postdoctoral Fellowship project developing data-driven model predictive control for wave energy converters.
-
-        The project combines nonlinear hydrodynamic modeling, efficient MPC design, experimental validation, and open-source software to help make wave energy more competitive.
-    design:
-      columns: '1'
-  - block: collection
-    id: recent-publications
-    content:
-      title: Recent Publications
-      text: |-
-        <span class="publication-topic-list" aria-label="Research topics">
-          <a class="publication-topic-chip" href="/tags/wave-energy-converters/">Wave Energy Converters</a>
-          <a class="publication-topic-chip" href="/tags/model-predictive-control/">Model Predictive Control</a>
-          <a class="publication-topic-chip" href="/tags/data-driven-control/">Data-Driven Control</a>
-          <a class="publication-topic-chip" href="/tags/constrained-optimization/">Constrained Optimization</a>
-          <a class="publication-topic-chip" href="/tags/system-identification/">System Identification</a>
-        </span>
-      filters:
-        folders:
-          - publications
-        exclude_featured: false
-    design:
-      view: article-grid
   - block: cta-card
     demo: true # Only display this section in the HugoBlox Kit demo site
     content:

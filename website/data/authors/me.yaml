@@ -13,9 +13,11 @@ status:
   icon: ""
 role: Marie Sklodowska-Curie Global Postdoctoral Fellow
 bio: |
-  Simone Pirrera works on control, optimization, and data-driven methods for
-  dynamical systems, with applications ranging from wave energy converters to
-  power electronics and constrained optimization.
+  My research focuses on control, optimization, and learning for dynamical systems.
+
+  I coordinate SWELL, Smart Wave Energy Conversion via Learning and Low-Cost Control, a Marie Sklodowska-Curie Global Postdoctoral Fellowship project developing data-driven model predictive control for wave energy converters.
+
+  The project combines nonlinear hydrodynamic modeling, efficient MPC design, experimental validation, and open-source software to help make wave energy more competitive.
 
 affiliations:
   - name: Department of Control and Computer Engineering (DAUIN), Politecnico di Torino
@@ -37,18 +39,18 @@ interests:
   - System Identification
 
 education:
-  - degree: "[PhD in Control and Optimization](/publications/optimization-methods-dynamical-systems-learning/)"
-    institution: Department of Control and Computer Engineering (DAUIN), Politecnico di Torino
+  - degree: PhD in Control and Optimization
+    institution: Politecnico di Torino
     start: 2021-11-01
     end: 2025-05-01
     summary: |
-      Dissertation: [Optimization methods for dynamical systems learning](/publications/optimization-methods-dynamical-systems-learning/).
-  - degree: "[Master Degree in Mechatronic Engineering](/publications/polynomial-optimization-gray-box-system-identification/)"
+      Dissertation: Optimization methods for dynamical systems learning. [View/download thesis](/uploads/phd_thesis.pdf).
+  - degree: Master Degree in Mechatronic Engineering
     institution: Politecnico di Torino
     start: 2019-10-01
     end: 2021-07-01
     summary: |
-      Thesis: [A polynomial optimization approach to gray-box system identification](/publications/polynomial-optimization-gray-box-system-identification/).
+      Thesis: A polynomial optimization approach to gray-box system identification. [View/download thesis](/uploads/master_thesis.pdf).
 
 experience:
   - role: Marie Sklodowska-Curie Global Postdoctoral Fellow
