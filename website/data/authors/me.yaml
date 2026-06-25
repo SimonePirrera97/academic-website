@@ -17,7 +17,7 @@ bio: |
 
   I coordinate SWELL, Smart Wave Energy Conversion via Learning and Low-Cost Control, a Marie Sklodowska-Curie Global Postdoctoral Fellowship project developing data-driven model predictive control for wave energy converters.
 
-  The project combines nonlinear hydrodynamic modeling, efficient MPC design, experimental validation, and open-source software to help make wave energy more competitive.
+  The project combines nonlinear hydrodynamic and data-driven modeling, efficient MPC design, experimental validation, and open-source software to help make wave energy more competitive.
 
 affiliations:
   - name: Department of Control and Computer Engineering (DAUIN), Politecnico di Torino
@@ -33,13 +33,13 @@ links:
 
 interests:
   - Wave Energy Converters
-  - Model Predictive Control
-  - Data-Driven Control
+  - Optimal and Robust Control
   - Constrained Optimization
-  - System Identification
+  - Dynamical Systems Learning and Identification
+  - Electronic Systems
 
 education:
-  - degree: PhD in Control and Optimization
+  - degree: Ph.D. in Computer and Control Engineering
     institution: Politecnico di Torino
     start: 2021-11-01
     end: 2025-05-01
@@ -59,7 +59,7 @@ education:
 experience:
   - role: Marie Sklodowska-Curie Global Postdoctoral Fellow
     org: SWELL Project
-    start: 2026-07-01
+    start: 2026-06-16
     summary: |
       Smart Wave Energy Conversion via Learning and Low-Cost Control.
   - role: Postdoctoral Researcher
@@ -89,7 +89,7 @@ awards:
     summary: |
       Awarded for the SWELL project on smart wave energy conversion.
 
-      This MSCA project is part of the Europe HORIZON programme, 2025 call. The project "Smart Wave Energy conversion via Learning and Low-cost control" (SWELL), is assigned project number 101276493 and the grant agreement is currently under preparation. The total funding assigned to this project is about €332K and has a total duration of 36 months: 24 of which at UWA and 12 at the host institution (Politecnico di Torino), with 5 months secondment at Imperial College London.
+      This MSCA project is part of the Europe HORIZON programme, 2025 call. The grant agreement for the project "Smart Wave Energy conversion via Learning and Low-cost control" (SWELL) has been signed under project number 101276493, and the project started on June 16, 2026. The total funding assigned to this project is about €332K and it has a total duration of 36 months: 16 months at UWA, 5 months at Imperial College London, and the remaining 15 months at the host institution, Politecnico di Torino.
     icon: hero/currency-euro
   - title: Best poster presenter award
     awarder: DAUIN Ph.D. Poster Day, Politecnico di Torino
