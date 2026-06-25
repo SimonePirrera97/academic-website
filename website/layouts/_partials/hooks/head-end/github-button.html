@@ -22,6 +22,30 @@
     padding-top: 1.5rem;
   }
 
+  @media (min-width: 768px) {
+    header nav a[href="publications/"],
+    header nav a[href="/publications/"],
+    header nav a[href$="/publications/"] {
+      position: relative;
+      margin-left: 0.9rem;
+      padding-left: 1.15rem;
+    }
+
+    header nav a[href="publications/"]::before,
+    header nav a[href="/publications/"]::before,
+    header nav a[href$="/publications/"]::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 1px;
+      height: 1.25rem;
+      background: currentColor;
+      opacity: 0.35;
+      transform: translateY(-50%);
+    }
+  }
+
   @media (min-width: 640px) {
     #section-resume-biography-3 .resume-biography {
       padding-top: 2rem;
@@ -148,6 +172,11 @@
     background-size: cover;
   }
 
+  .project-panel-list .paper-category-media {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
   .paper-category-body {
     display: grid;
     gap: 0.4rem;
@@ -166,6 +195,12 @@
     font-size: 1rem;
     font-weight: 750;
     line-height: 1.2;
+  }
+
+  .paper-category-action {
+    color: rgb(63 85 105);
+    font-size: 0.84rem;
+    font-weight: 500;
   }
 
   .paper-category-counts {
@@ -437,6 +472,12 @@
   #section-resume-skills li,
   #section-resume-skills span {
     white-space: pre-line;
+  }
+
+  #section-resume-skills .mb-6:first-of-type,
+  #section-resume-skills .space-y-4:first-of-type,
+  #section-resume-skills ul:first-of-type {
+    margin-left: clamp(1.5rem, 6vw, 5rem);
   }
 
   .project-panel {
@@ -801,9 +842,9 @@
       });
     };
 
-    const ensurePageHeading = (title, anchor) => {
+    const ensurePageHeading = (title, anchor, generatedTitle = title) => {
       if (!anchor || anchor.parentElement?.querySelector(`.custom-page-heading[data-title="${title}"]`)) return;
-      hideGeneratedHeading(title);
+      hideGeneratedHeading(generatedTitle);
 
       const heading = document.createElement('header');
       heading.className = 'custom-page-heading';
@@ -1039,14 +1080,14 @@
       root.dataset.rendered = 'true';
       root.textContent = '';
 
-      paperData.forEach((category, categoryIndex) => {
+      paperData.forEach((category) => {
         const panel = document.createElement('section');
-        panel.className = `paper-category-panel${categoryIndex === 0 ? ' is-open' : ''}`;
+        panel.className = 'paper-category-panel';
 
         const button = document.createElement('button');
         button.className = 'paper-category-trigger';
         button.type = 'button';
-        button.setAttribute('aria-expanded', categoryIndex === 0 ? 'true' : 'false');
+        button.setAttribute('aria-expanded', 'false');
         button.innerHTML = `
           <span class="paper-category-media" style="--topic-image: url('/publications/preprint/featured.jpg');" aria-hidden="true"></span>
           <span class="paper-category-body">
@@ -1055,7 +1096,7 @@
             <span class="paper-category-counts"></span>
           </span>`;
         button.querySelector('.paper-category-name').textContent = category.name;
-        button.querySelector('.paper-category-total').textContent = category.total;
+        button.querySelector('.paper-category-total').innerHTML = `${category.total} <span class="paper-category-action">click to show</span>`;
         button.querySelector('.paper-category-counts').textContent = category.counts;
 
         button.addEventListener('click', () => {
@@ -1131,7 +1172,7 @@
     };
 
     renderPapersPage();
-    ensurePageHeading('Papers', document.querySelector('.papers-accordion-control'));
+    ensurePageHeading('Paper categories', document.querySelector('.papers-accordion-control'), 'Papers');
 
     const renderTeachingPanel = () => {
       if (!document.querySelector('#courses')) return;

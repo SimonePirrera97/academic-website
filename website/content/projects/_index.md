@@ -12,13 +12,18 @@ banner:
 ---
 
 <section class="project-panel-list" aria-label="Projects">
-  <a class="project-panel project-panel-link" href="/projects/swell/">
-    <img src="/media/SWELL%20LOGO%20bk.png" alt="SWELL project logo">
-    <div class="project-panel-body">
-      <p class="project-panel-kicker">Marie Sklodowska-Curie Global Postdoctoral Fellowship</p>
-      <h2>SWELL</h2>
-      <p>Smart Wave Energy Conversion via Learning and Low-Cost Control.</p>
-      <p>The project develops data-driven model predictive control methods for wave energy converters, combining hydrodynamic and data-driven modeling, efficient control design, experimental validation, and open-source software.</p>
-    </div>
-  </a>
+  <article class="teaching-course-panel">
+    <a class="teaching-course-link" href="/projects/swell/">
+      <span class="paper-category-media" style="--topic-image: url('/media/SWELL%20LOGO%20bk.png');" aria-hidden="true"></span>
+      <span class="paper-category-body">
+        <span class="paper-category-name">SWELL</span>
+        <span class="paper-category-total">Smart Wave Energy Conversion via Learning and Low-Cost Control</span>
+        <span class="paper-category-counts">Marie Sklodowska-Curie Global Postdoctoral Fellowship</span>
+        <span class="teaching-course-meta">
+          <span>Wave energy converters</span>
+          <span>Data-driven model predictive control</span>
+        </span>
+      </span>
+    </a>
+  </article>
 </section>
