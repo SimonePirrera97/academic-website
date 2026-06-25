@@ -26,32 +26,11 @@
     }
   }
 
-  .publication-topic-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-    gap: 1rem;
-    width: min(92vw, 72rem);
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .publication-topic-list-left {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 18rem));
-    width: 100%;
-    margin-left: 0;
-    transform: none;
-  }
-
-  .publication-topic-list-large {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-    gap: 1.25rem;
-    width: min(94vw, 82rem);
-    margin-top: 0.5rem;
-    margin-bottom: 2.75rem;
-  }
-
   .papers-page .page-body > .flex.flex-col.items-center,
   .teaching-page .page-body > .flex.flex-col.items-center,
+  .teaching-page #courses .flex.flex-col.items-center,
+  .teaching-page #courses .grid:not(.teaching-panel-control),
+  .teaching-page #courses article:not(.teaching-course-panel),
   .projects-page .page-body > .flex.flex-col.items-center {
     display: none;
   }
@@ -72,26 +51,6 @@
     background: rgb(255 255 255 / 0.9);
     box-shadow: 0 10px 28px rgb(0 40 75 / 0.08);
     transition: border-color 180ms ease, box-shadow 180ms ease;
-  }
-
-  .paper-category-panel[open] {
-    border-color: rgb(239 123 2 / 0.58);
-    box-shadow: 0 16px 34px rgb(0 40 75 / 0.12);
-  }
-
-  .paper-category-panel > summary {
-    display: grid;
-    grid-template-columns: minmax(8.5rem, 13rem) minmax(0, 1fr);
-    gap: 1.25rem;
-    align-items: center;
-    cursor: pointer;
-    list-style: none;
-    padding: 1rem;
-  }
-
-  .paper-category-panel > summary::-webkit-details-marker,
-  .paper-entry > summary::-webkit-details-marker {
-    display: none;
   }
 
   .paper-category-media {
@@ -183,6 +142,21 @@
     line-height: 1.15;
   }
 
+  .teaching-course-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .teaching-course-years {
+    color: rgb(63 85 105);
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
   .paper-category-panel.is-open {
     border-color: rgb(239 123 2 / 0.58);
     box-shadow: 0 16px 34px rgb(0 40 75 / 0.12);
@@ -194,7 +168,7 @@
 
   .paper-entry-trigger {
     display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(11rem, 1fr) minmax(5rem, auto) auto;
+    grid-template-columns: minmax(5rem, 8rem) minmax(0, 1fr);
     gap: 0.75rem;
     align-items: start;
     width: 100%;
@@ -206,57 +180,10 @@
     display: none;
   }
 
-  .papers-display-control {
-    width: min(94vw, 82rem);
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .papers-display-control > input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .papers-display-tabs {
+  .paper-entry-content {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.35rem;
-    margin: 0 auto 1.35rem;
-    max-width: 44rem;
-    border: 1px solid rgb(0 123 161 / 0.24);
-    border-radius: 8px;
-    background: rgb(255 255 255 / 0.78);
-    padding: 0.35rem;
-  }
-
-  .papers-display-tabs label {
-    margin: 0;
-    border-radius: 6px;
-    color: rgb(0 40 75);
-    cursor: pointer;
-    font-size: 0.98rem;
-    font-weight: 750;
-    line-height: 1.2;
-    padding: 0.8rem 1rem;
-    text-align: center;
-    transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
-  }
-
-  #papers-display-categories:checked ~ .papers-display-tabs label[for="papers-display-categories"],
-  #papers-display-recent:checked ~ .papers-display-tabs label[for="papers-display-recent"] {
-    background: rgb(0 40 75);
-    color: rgb(255 255 255);
-    box-shadow: 0 8px 18px rgb(0 40 75 / 0.18);
-  }
-
-  .papers-display-panel {
-    display: none;
-  }
-
-  #papers-display-categories:checked ~ .papers-display-categories,
-  #papers-display-recent:checked ~ .papers-display-recent {
-    display: block;
+    gap: 0.28rem;
+    min-width: 0;
   }
 
   .selected-contribution-list {
@@ -311,15 +238,6 @@
     padding: 0 1rem 1rem;
   }
 
-  .paper-entry > summary {
-    display: grid;
-    grid-template-columns: minmax(0, 1.65fr) minmax(12rem, 1fr) auto auto;
-    gap: 0.75rem;
-    align-items: start;
-    cursor: pointer;
-    list-style: none;
-  }
-
   .paper-entry-title {
     color: rgb(0 40 75);
     font-size: 1rem;
@@ -338,7 +256,7 @@
   .paper-entry-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 0.35rem;
   }
 
@@ -373,33 +291,16 @@
     line-height: 1.58;
   }
 
-  .selected-contribution-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.1rem;
+  .paper-entry-abstract strong {
+    color: rgb(0 40 75);
+    font-weight: 800;
   }
 
-  .selected-contribution-tags a {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid rgb(0 123 161 / 0.28);
-    border-radius: 999px;
-    background: rgb(150 218 234 / 0.24);
-    color: rgb(0 40 75);
-    padding: 0.28rem 0.58rem;
-    font-size: 0.78rem;
-    font-weight: 700;
-    line-height: 1.15;
-    text-decoration: none;
-    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
-  }
-
-  .selected-contribution-tags a:hover {
-    border-color: rgb(239 123 2 / 0.7);
-    background: rgb(239 123 2 / 0.12);
-    color: rgb(0 40 75);
-    text-decoration: none;
+  .paper-entry-toggle {
+    color: rgb(0 123 161);
+    font-size: 0.84rem;
+    font-weight: 800;
+    line-height: 1.2;
   }
 
   .academic-download-button {
@@ -551,13 +452,8 @@
   }
 
   @media (max-width: 640px) {
-    .papers-display-tabs {
-      grid-template-columns: 1fr;
-    }
-
-    .paper-category-panel > summary,
-    .teaching-course-link,
-    .paper-entry > summary {
+    .paper-category-trigger,
+    .teaching-course-link {
       grid-template-columns: 1fr;
     }
 
@@ -610,135 +506,12 @@
     max-width: min(90vw, 58rem);
   }
 
-  .publication-topic-chip {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
-    border: 1px solid rgb(0 123 161 / 0.32);
-    background: rgb(150 218 234 / 0.24);
-    color: rgb(0 40 75);
-    padding: 0.55rem 0.95rem;
-    font-size: 0.95rem;
-    font-weight: 650;
-    line-height: 1.2;
-    text-decoration: none;
-    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
-  }
-
-  .publication-topic-card {
-    display: flex;
-    min-height: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid rgb(0 123 161 / 0.18);
-    border-radius: 8px;
-    background: rgb(255 255 255 / 0.9);
-    color: rgb(0 40 75);
-    text-decoration: none;
-    box-shadow: 0 10px 28px rgb(0 40 75 / 0.08);
-    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-  }
-
-  .publication-topic-card:hover {
-    border-color: rgb(239 123 2 / 0.75);
-    color: rgb(0 40 75);
-    text-decoration: none;
-    box-shadow: 0 16px 34px rgb(0 40 75 / 0.12);
-    transform: translateY(-3px);
-  }
-
-  .publication-topic-media {
-    display: block;
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    background-color: rgb(150 218 234 / 0.18);
-    background-image: var(--topic-image);
-    background-position: center;
-    background-size: cover;
-  }
-
-  .publication-topic-body {
-    display: grid;
-    gap: 0.35rem;
-    padding: 1rem;
-  }
-
-  .publication-topic-name {
-    font-size: 1.05rem;
-    font-weight: 750;
-    line-height: 1.25;
-  }
-
-  .publication-topic-total {
-    color: rgb(0 123 161);
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  .publication-topic-counts {
-    color: rgb(63 85 105);
-    font-size: 0.88rem;
-    line-height: 1.35;
-  }
-
-  .publication-topic-list-large .publication-topic-media {
-    aspect-ratio: 16 / 10;
-  }
-
-  .publication-topic-list-large .publication-topic-body {
-    gap: 0.45rem;
-    padding: 1.2rem;
-  }
-
-  .publication-topic-list-large .publication-topic-name {
-    font-size: 1.2rem;
-  }
-
-  .publication-topic-list-large .publication-topic-total {
-    font-size: 1.02rem;
-  }
-
-  .publication-topic-list-large .publication-topic-counts {
-    font-size: 0.95rem;
-  }
-
-  .dark .publication-topic-card {
-    border-color: rgb(150 218 234 / 0.28);
-    background: rgb(0 40 75 / 0.72);
-    color: rgb(230 244 248);
-    box-shadow: 0 12px 30px rgb(0 0 0 / 0.25);
-  }
-
-  .dark .publication-topic-card:hover {
-    border-color: rgb(239 123 2 / 0.8);
-    color: rgb(255 255 255);
-    box-shadow: 0 16px 34px rgb(0 0 0 / 0.32);
-  }
-
-  .dark .publication-topic-media {
-    background-color: rgb(0 29 54 / 0.8);
-  }
-
-  .dark .publication-topic-total {
-    color: rgb(150 218 234);
-  }
-
-  .dark .publication-topic-counts {
-    color: rgb(202 224 232);
-  }
-
-  .dark .papers-display-tabs,
   .dark .selected-contribution-list li,
   .dark .project-panel,
   .dark .paper-category-panel,
   .dark .teaching-course-panel {
     border-color: rgb(150 218 234 / 0.28);
     background: rgb(0 40 75 / 0.72);
-  }
-
-  .dark .paper-category-panel[open] {
-    border-color: rgb(239 123 2 / 0.8);
   }
 
   .dark .project-detail {
@@ -751,7 +524,6 @@
     background: transparent;
   }
 
-  .dark .papers-display-tabs label,
   .dark .selected-contribution-list > li > a,
   .dark .paper-category-name,
   .dark .teaching-course-link .paper-category-name,
@@ -761,14 +533,10 @@
     color: rgb(230 244 248);
   }
 
-  .dark #papers-display-categories:checked ~ .papers-display-tabs label[for="papers-display-categories"],
-  .dark #papers-display-recent:checked ~ .papers-display-tabs label[for="papers-display-recent"] {
-    background: rgb(239 123 2 / 0.88);
-  }
-
   .dark .selected-contribution-list span,
   .dark .paper-category-counts,
   .dark .teaching-course-link .paper-category-counts,
+  .dark .teaching-course-years,
   .dark .paper-entry-authors,
   .dark .paper-entry-meta,
   .dark .paper-entry-abstract,
@@ -807,16 +575,9 @@
     border-top-color: rgb(150 218 234 / 0.22);
   }
 
-  .dark .selected-contribution-tags a {
-    border-color: rgb(150 218 234 / 0.34);
-    background: rgb(0 29 54 / 0.86);
-    color: rgb(185 232 242);
-  }
-
-  .dark .selected-contribution-tags a:hover {
-    border-color: rgb(239 123 2 / 0.82);
-    background: rgb(239 123 2 / 0.18);
-    color: rgb(255 255 255);
+  .dark .paper-entry-abstract strong,
+  .dark .paper-entry-toggle {
+    color: rgb(150 218 234);
   }
 
   .dark .academic-download-button {
@@ -832,26 +593,6 @@
 
   .dark .project-panel-kicker {
     color: rgb(150 218 234);
-  }
-
-  .publication-topic-chip:hover {
-    border-color: rgb(239 123 2 / 0.75);
-    background: rgb(239 123 2 / 0.12);
-    color: rgb(0 40 75);
-    text-decoration: none;
-    transform: translateY(-1px);
-  }
-
-  .dark .publication-topic-chip {
-    border-color: rgb(150 218 234 / 0.34);
-    background: rgb(0 40 75 / 0.72);
-    color: rgb(185 232 242);
-  }
-
-  .dark .publication-topic-chip:hover {
-    border-color: rgb(239 123 2 / 0.8);
-    background: rgb(239 123 2 / 0.18);
-    color: rgb(255 255 255);
   }
 
   .publication-page-intro {
@@ -938,7 +679,7 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector('.papers-display-control, .papers-accordion-control')) {
+    if (document.querySelector('.papers-accordion-control')) {
       document.body.classList.add('papers-page');
     }
 
@@ -951,7 +692,7 @@
           {
             title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
             authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
               ['arXiv', 'https://arxiv.org/abs/2509.05853']
@@ -968,7 +709,7 @@
           {
             title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
             authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
               ['arXiv', 'https://arxiv.org/abs/2509.05853']
@@ -978,7 +719,7 @@
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC'],
               ['arXiv', 'https://arxiv.org/abs/2509.05463']
@@ -988,7 +729,7 @@
           {
             title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
             authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
               ['arXiv', 'https://arxiv.org/abs/2509.02102']
@@ -998,7 +739,7 @@
           {
             title: 'Direct data-driven controller design from bounded errors-in-variables measurements',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Conference · 2025',
+            meta: 'Conference \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:eQOLeE2rZwMC'],
               ['DOI', 'https://doi.org/10.23919/ecc65951.2025.11187201']
@@ -1008,7 +749,7 @@
           {
             title: 'A non-iterative approach to direct data-driven control design of MIMO LTI systems',
             authors: 'Mohammad Abuabiah, Vito Cerone, Simone Pirrera, Diego Regruto',
-            meta: 'Journal · 2023',
+            meta: 'Journal \u00b7 2023',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:2osOgNQ5qMEC'],
               ['DOI', 'https://doi.org/10.1109/access.2023.3329070']
@@ -1025,7 +766,7 @@
           {
             title: 'Global Convergence of Control-Based Lagrangian Flows for Non-Convex Optimization',
             authors: 'Simone Pirrera, Francesco Ripa, Daniele Astolfi, Vito Cerone, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint · 2026',
+            meta: 'Preprint \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:LkGwnXOMwfcC'],
               ['arXiv', 'https://arxiv.org/abs/2605.22486']
@@ -1035,7 +776,7 @@
           {
             title: 'Feedback control of Lagrange multipliers for non-smooth constrained optimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Andrea Re, Diego Regruto',
-            meta: 'Preprint · 2026',
+            meta: 'Preprint \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:_FxGoFyzp5QC'],
               ['arXiv', 'https://arxiv.org/abs/2604.06511']
@@ -1045,7 +786,7 @@
           {
             title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Tyk-4Ss8FVUC'],
               ['arXiv', 'https://arxiv.org/abs/2509.01461']
@@ -1055,7 +796,7 @@
           {
             title: 'A new framework for constrained optimization via feedback control of Lagrange multipliers',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Journal · 2025',
+            meta: 'Journal \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:qjMakFHDy7sC'],
               ['arXiv', 'https://arxiv.org/abs/2403.12738'],
@@ -1066,7 +807,7 @@
           {
             title: 'Controlled multipliers optimization: a feedback control approach to constrained optimization',
             authors: 'Diego Regruto, Simone Pirrera',
-            meta: 'Conference · 2025',
+            meta: 'Conference \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:WF5omc3nYNoC'],
               ['DOI', 'https://doi.org/10.23919/ecc65951.2025.11187163']
@@ -1076,7 +817,7 @@
           {
             title: 'A feedback control approach to convex optimization with inequality constraints',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Conference · 2024',
+            meta: 'Conference \u00b7 2024',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:UeHWp8X0CEIC'],
               ['arXiv', 'https://arxiv.org/abs/2409.07168'],
@@ -1087,7 +828,7 @@
           {
             title: 'Alternating direction method of multipliers for polynomial optimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Conference · 2023',
+            meta: 'Conference \u00b7 2023',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:d1gkVwhDpl0C'],
               ['arXiv', 'https://arxiv.org/abs/2502.01439'],
@@ -1105,7 +846,7 @@
           {
             title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Tyk-4Ss8FVUC'],
               ['arXiv', 'https://arxiv.org/abs/2509.01461']
@@ -1115,7 +856,7 @@
           {
             title: 'Set-membership identification of continuous-time MIMO systems via Tustin discretization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:zYLM7Y9cAGgC'],
               ['arXiv', 'https://arxiv.org/abs/2508.19348']
@@ -1125,7 +866,7 @@
           {
             title: 'Set-membership identification of continuous-time systems through model transformation',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Conference · 2022',
+            meta: 'Conference \u00b7 2022',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:u-x6o8ySG0sC'],
               ['DOI', 'https://doi.org/10.1109/cdc51059.2022.9992815']
@@ -1142,7 +883,7 @@
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC'],
               ['arXiv', 'https://arxiv.org/abs/2509.05463']
@@ -1152,7 +893,7 @@
           {
             title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
             authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'Preprint · 2025',
+            meta: 'Preprint \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
               ['arXiv', 'https://arxiv.org/abs/2509.02102']
@@ -1210,13 +951,16 @@
           entryButton.tabIndex = 0;
           entryButton.setAttribute('aria-expanded', 'false');
           entryButton.innerHTML = `
-            <span class="paper-entry-title"></span>
-            <span class="paper-entry-authors"></span>
-            <span class="paper-entry-meta"></span>
-            <span class="paper-entry-links"></span>`;
+            <span class="paper-entry-links"></span>
+            <span class="paper-entry-content">
+              <span class="paper-entry-title"></span>
+              <span class="paper-entry-meta"></span>
+              <span class="paper-entry-authors"></span>
+              <span class="paper-entry-toggle">Show abstract</span>
+            </span>`;
           entryButton.querySelector('.paper-entry-title').textContent = paper.title;
-          entryButton.querySelector('.paper-entry-authors').textContent = paper.authors;
           entryButton.querySelector('.paper-entry-meta').textContent = paper.meta;
+          entryButton.querySelector('.paper-entry-authors').textContent = paper.authors;
 
           const links = entryButton.querySelector('.paper-entry-links');
           paper.links.forEach(([label, href]) => {
@@ -1229,11 +973,15 @@
 
           const abstract = document.createElement('p');
           abstract.className = 'paper-entry-abstract';
-          abstract.textContent = paper.abstract;
+          const abstractLabel = document.createElement('strong');
+          abstractLabel.textContent = 'Abstract: ';
+          abstract.appendChild(abstractLabel);
+          abstract.appendChild(document.createTextNode(paper.abstract));
 
           entryButton.addEventListener('click', () => {
             const isOpen = entry.classList.toggle('is-open');
             entryButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            entryButton.querySelector('.paper-entry-toggle').textContent = isOpen ? 'Hide abstract' : 'Show abstract';
           });
           entryButton.addEventListener('keydown', (event) => {
             if (event.key !== 'Enter' && event.key !== ' ') return;
@@ -1269,38 +1017,24 @@
           <a class="teaching-course-link" href="https://didattica.polito.it/pls/portal30/gap.pkg_guide.viewGap?p_cod_ins=01QYEYP&p_a_acc=2028&p_header=S&p_lang=IT&multi=N">
             <span class="paper-category-media" style="--topic-image: url('/publications/preprint/featured.jpg');" aria-hidden="true"></span>
             <span class="paper-category-body">
-              <span class="paper-category-name">Laboratory of Robust Identification and Control</span>
+              <span class="teaching-course-head">
+                <span class="paper-category-name">Laboratory of Robust Identification and Control</span>
+                <span class="teaching-course-years">2022 - 2025</span>
+              </span>
               <span class="paper-category-total">Main teacher: Prof. Diego Regruto</span>
               <span class="paper-category-counts">Topics: Control systems, System identification</span>
               <span class="teaching-course-meta">
                 <span>Master degree course</span>
                 <span>Politecnico di Torino</span>
-                <span>Academic years 2022-2023 to 2025-2026</span>
               </span>
             </span>
           </a>
         </article>`;
 
-      const body = section.querySelector('.page-body, .prose, .container, .max-w-screen-xl') || section;
-      body.appendChild(container);
+      section.appendChild(container);
     };
 
     renderTeachingPanel();
-
-    document.querySelectorAll('.paper-category-panel').forEach((panel) => {
-      panel.addEventListener('toggle', () => {
-        if (!panel.open) return;
-        document.querySelectorAll('.paper-category-panel').forEach((otherPanel) => {
-          if (otherPanel !== panel) otherPanel.open = false;
-        });
-      });
-    });
-
-    document.querySelectorAll('.paper-entry-links a').forEach((link) => {
-      link.addEventListener('click', (event) => {
-        event.stopPropagation();
-      });
-    });
 
     if (document.querySelector('.project-panel-list')) {
       document.body.classList.add('projects-page');
@@ -1310,34 +1044,6 @@
     document.querySelectorAll('a[href="/courses/laboratory-robust-identification-control/"], a[href$="/courses/laboratory-robust-identification-control/"]').forEach((link) => {
       link.href = robustCourseUrl;
     });
-
-    const pruneThemePicker = () => {
-      const allowedThemes = new Set(['Default', 'PoliTO', 'Polito', 'Minimal', 'Ocean']);
-      const modeLabels = new Set(['Light', 'Dark', 'System', 'Auto']);
-      document.querySelectorAll('[id*="theme" i], [class*="theme" i], [aria-label*="theme" i]').forEach((container) => {
-        container.querySelectorAll('a, button, label, option').forEach((option) => {
-          const label = option.textContent.trim().replace(/\s+/g, ' ');
-          if (!label || allowedThemes.has(label) || modeLabels.has(label)) return;
-          const lowerLabel = label.toLowerCase();
-          if (lowerLabel.includes('theme') || lowerLabel.includes('mode')) return;
-
-          if (option.tagName === 'OPTION') {
-            option.remove();
-            return;
-          }
-
-          const listItem = option.closest('li');
-          if (listItem && container.contains(listItem)) {
-            listItem.remove();
-          } else {
-            option.remove();
-          }
-        });
-      });
-    };
-
-    pruneThemePicker();
-    window.setTimeout(pruneThemePicker, 250);
 
     const interestLinks = {
       'Wave Energy Converters': '/publications/',
