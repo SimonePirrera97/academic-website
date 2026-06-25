@@ -35,6 +35,26 @@
     display: none;
   }
 
+  .papers-page h1,
+  .papers-page .page-header,
+  .teaching-page h1,
+  .teaching-page .page-header,
+  .custom-page-heading {
+    text-align: center;
+  }
+
+  .custom-page-heading {
+    width: min(92vw, 64rem);
+    margin: 0 auto 1.75rem;
+  }
+
+  .custom-page-heading h1 {
+    color: rgb(0 40 75);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.05;
+  }
+
   .papers-accordion-control {
     display: grid;
     gap: 1rem;
@@ -356,6 +376,11 @@
     display: none;
   }
 
+  #section-resume-skills li,
+  #section-resume-skills span {
+    white-space: pre-line;
+  }
+
   .project-panel-list {
     width: min(92vw, 58rem);
     margin-left: 50%;
@@ -548,6 +573,7 @@
   .dark .paper-category-name,
   .dark .teaching-course-link .paper-category-name,
   .dark .paper-entry-title,
+  .dark .custom-page-heading h1,
   .dark .project-panel-body h2,
   .dark .project-detail-body h2 {
     color: rgb(230 244 248);
@@ -795,7 +821,7 @@
           },
           {
             title: 'Feedback control of Lagrange multipliers for non-smooth constrained optimization',
-            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Andrea Re, Diego Regruto',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Alice Re, Diego Regruto',
             meta: 'Preprint on arXiv \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:_FxGoFyzp5QC'],
@@ -1029,6 +1055,13 @@
       if (document.querySelector('.teaching-panel-control')) return;
 
       const section = document.querySelector('#courses');
+      if (!section.querySelector('.custom-page-heading')) {
+        const heading = document.createElement('header');
+        heading.className = 'custom-page-heading';
+        heading.innerHTML = '<h1>Teaching</h1>';
+        section.appendChild(heading);
+      }
+
       const container = document.createElement('section');
       container.className = 'teaching-panel-control';
       container.setAttribute('aria-label', 'Teaching activities');

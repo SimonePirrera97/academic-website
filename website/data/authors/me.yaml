@@ -68,7 +68,7 @@ experience:
     end: 2026-06-01
     summary: |
       Research on control, optimization, and data-driven methods for dynamical systems.
- 
+
 skills:
   - name: Programming Skills
     items:
@@ -79,17 +79,21 @@ skills:
       - label: VHDL
   - name: Hobbies
     items:
-      - label: Running - personal best 12 K at 5:50
-      - label: Chess - ELO 1300
+      - label: |-
+          Running
+          personal best 12 km at 5:50 min/km
+      - label: |-
+          Chess
+          elo 1300 on chess.com
 
 awards:
   - title: Marie Sklodowska-Curie Global Postdoctoral Fellowship
     awarder: European Union Horizon Europe
     date: "2025-01-01"
     summary: |
-      Awarded for the SWELL project on smart wave energy conversion.
+      Awarded for the project "Smart Wave Energy conversion via Learning and Low-cost control" (SWELL), focused on smart wave energy conversion through learning-based and low-cost control methods.
 
-      This MSCA project is part of the Europe HORIZON programme, 2025 call. The grant agreement for the project "Smart Wave Energy conversion via Learning and Low-cost control" (SWELL) has been signed under project number 101276493, and the project started on June 16, 2026. The total funding assigned to this project is about €332K and it has a total duration of 36 months: 16 months at UWA, 5 months at Imperial College London, and the remaining 15 months at the host institution, Politecnico di Torino.
+      The MSCA project is part of the Europe HORIZON programme, 2025 call. The total funding assigned is about €332K, with a total duration of 36 months.
     icon: hero/currency-euro
   - title: Best poster presenter award
     awarder: DAUIN Ph.D. Poster Day, Politecnico di Torino
