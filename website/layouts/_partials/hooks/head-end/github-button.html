@@ -5,6 +5,11 @@
     background-color: rgb(226 240 255);
   }
 
+  html.dark,
+  html.dark body {
+    background-color: rgb(0 11 20);
+  }
+
   #section-resume-biography-3 .resume-biography {
     padding-top: 1.5rem;
   }
@@ -45,7 +50,8 @@
     margin-bottom: 2.75rem;
   }
 
-  .papers-page .page-body > .flex.flex-col.items-center {
+  .papers-page .page-body > .flex.flex-col.items-center,
+  .projects-page .page-body > .flex.flex-col.items-center {
     display: none;
   }
 
@@ -127,7 +133,7 @@
     transform: translateX(2px);
   }
 
-  .selected-contribution-list a {
+  .selected-contribution-list > li > a {
     color: rgb(0 40 75);
     font-size: 1rem;
     font-weight: 750;
@@ -135,7 +141,7 @@
     text-decoration: none;
   }
 
-  .selected-contribution-list a:hover {
+  .selected-contribution-list > li > a:hover {
     color: rgb(0 123 161);
     text-decoration: underline;
     text-underline-offset: 0.16em;
@@ -146,6 +152,68 @@
     font-size: 0.9rem;
     font-weight: 650;
     line-height: 1.25;
+  }
+
+  .selected-contribution-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.1rem;
+  }
+
+  .selected-contribution-tags a {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgb(0 123 161 / 0.28);
+    border-radius: 999px;
+    background: rgb(150 218 234 / 0.24);
+    color: rgb(0 40 75);
+    padding: 0.28rem 0.58rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-decoration: none;
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+
+  .selected-contribution-tags a:hover {
+    border-color: rgb(239 123 2 / 0.7);
+    background: rgb(239 123 2 / 0.12);
+    color: rgb(0 40 75);
+    text-decoration: none;
+  }
+
+  .academic-download-button {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.65rem;
+    border-radius: 6px;
+    background: rgb(0 40 75);
+    color: rgb(255 255 255);
+    padding: 0.65rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 750;
+    line-height: 1.15;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgb(0 40 75 / 0.18);
+    transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .academic-download-button:hover {
+    background: rgb(0 123 161);
+    color: rgb(255 255 255);
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgb(0 40 75 / 0.22);
+    transform: translateY(-1px);
+  }
+
+  #section-resume-skills progress,
+  #section-resume-skills [role="progressbar"],
+  #section-resume-skills .progress,
+  #section-resume-skills .skill-bar {
+    display: none;
   }
 
   .project-panel-list {
@@ -206,6 +274,19 @@
     box-shadow: 0 12px 30px rgb(0 40 75 / 0.08);
   }
 
+  .project-detail-bio {
+    align-items: start;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .project-detail-media {
+    position: sticky;
+    top: 6rem;
+  }
+
   .project-detail img {
     width: 100%;
     height: auto;
@@ -215,6 +296,7 @@
   .project-detail-body {
     display: grid;
     gap: 0.75rem;
+    max-width: 42rem;
   }
 
   .project-panel-kicker,
@@ -262,6 +344,10 @@
     .project-panel img,
     .project-detail img {
       max-width: 13rem;
+    }
+
+    .project-detail-media {
+      position: static;
     }
   }
 
@@ -401,14 +487,23 @@
 
   .dark .papers-display-tabs,
   .dark .selected-contribution-list li,
-  .dark .project-panel,
+  .dark .project-panel {
+    border-color: rgb(150 218 234 / 0.28);
+    background: rgb(0 40 75 / 0.72);
+  }
+
   .dark .project-detail {
     border-color: rgb(150 218 234 / 0.28);
     background: rgb(0 40 75 / 0.72);
   }
 
+  .dark .project-detail-bio {
+    border-color: transparent;
+    background: transparent;
+  }
+
   .dark .papers-display-tabs label,
-  .dark .selected-contribution-list a,
+  .dark .selected-contribution-list > li > a,
   .dark .project-panel-body h2,
   .dark .project-detail-body h2 {
     color: rgb(230 244 248);
@@ -423,6 +518,29 @@
   .dark .project-panel-body p,
   .dark .project-detail-body p {
     color: rgb(202 224 232);
+  }
+
+  .dark .selected-contribution-tags a {
+    border-color: rgb(150 218 234 / 0.34);
+    background: rgb(0 29 54 / 0.86);
+    color: rgb(185 232 242);
+  }
+
+  .dark .selected-contribution-tags a:hover {
+    border-color: rgb(239 123 2 / 0.82);
+    background: rgb(239 123 2 / 0.18);
+    color: rgb(255 255 255);
+  }
+
+  .dark .academic-download-button {
+    background: rgb(239 123 2 / 0.9);
+    color: rgb(255 255 255);
+    box-shadow: 0 8px 18px rgb(0 0 0 / 0.25);
+  }
+
+  .dark .academic-download-button:hover {
+    background: rgb(150 218 234 / 0.92);
+    color: rgb(0 11 20);
   }
 
   .dark .project-panel-kicker {
@@ -536,6 +654,38 @@
     if (document.querySelector('.papers-display-control')) {
       document.body.classList.add('papers-page');
     }
+
+    if (document.querySelector('.project-panel-list')) {
+      document.body.classList.add('projects-page');
+    }
+
+    const pruneThemePicker = () => {
+      const allowedThemes = new Set(['Default', 'PoliTO', 'Polito', 'Minimal', 'Ocean']);
+      const modeLabels = new Set(['Light', 'Dark', 'System', 'Auto']);
+      document.querySelectorAll('[id*="theme" i], [class*="theme" i], [aria-label*="theme" i]').forEach((container) => {
+        container.querySelectorAll('a, button, label, option').forEach((option) => {
+          const label = option.textContent.trim().replace(/\s+/g, ' ');
+          if (!label || allowedThemes.has(label) || modeLabels.has(label)) return;
+          const lowerLabel = label.toLowerCase();
+          if (lowerLabel.includes('theme') || lowerLabel.includes('mode')) return;
+
+          if (option.tagName === 'OPTION') {
+            option.remove();
+            return;
+          }
+
+          const listItem = option.closest('li');
+          if (listItem && container.contains(listItem)) {
+            listItem.remove();
+          } else {
+            option.remove();
+          }
+        });
+      });
+    };
+
+    pruneThemePicker();
+    window.setTimeout(pruneThemePicker, 250);
 
     const interestLinks = {
       'Wave Energy Converters': '/tags/wave-energy-converters/',

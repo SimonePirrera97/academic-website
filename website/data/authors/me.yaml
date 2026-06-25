@@ -44,13 +44,17 @@ education:
     start: 2021-11-01
     end: 2025-05-01
     summary: |
-      Dissertation: Optimization methods for dynamical systems learning. <a href="/uploads/phd_thesis.pdf" download>Download thesis</a>.
+      Dissertation: Optimization methods for dynamical systems learning.
+
+      <a class="academic-download-button" href="/uploads/phd_thesis.pdf" download>Download PhD thesis</a>
   - degree: Master Degree in Mechatronic Engineering
     institution: Politecnico di Torino
     start: 2019-10-01
     end: 2021-07-01
     summary: |
-      Thesis: A polynomial optimization approach to gray-box system identification. <a href="/uploads/master_thesis.pdf" download>Download thesis</a>.
+      Thesis: A polynomial optimization approach to gray-box system identification.
+
+      <a class="academic-download-button" href="/uploads/master_thesis.pdf" download>Download Master thesis</a>
 
 experience:
   - role: Marie Sklodowska-Curie Global Postdoctoral Fellow
@@ -66,37 +70,30 @@ experience:
       Research on control, optimization, and data-driven methods for dynamical systems.
  
 skills:
-  - name: Technical Skills
+  - name: Programming Skills
     items:
       - label: Python
-        level: 3
       - label: MATLAB
-        level: 4
-      - label: Model Predictive Control
-        level: 5
-      - label: System Identification
-        level: 5
-  - name: Research
+      - label: Julia
+      - label: C/C++
+      - label: VHDL
+  - name: Hobbies
     items:
-      - label: Data-driven Control
-        level: 5
-      - label: Optimization
-        level: 4
-      - label: Wave Energy
-        level: 4
-      - label: Constrained Optimization
-        level: 4  
-languages:
-  - name: English
-    level: 5
-    label: Fluent
-  - name: Italian
-    level: 5
-    label: Native
+      - label: Running - personal best 12 K at 5:50
+      - label: Chess - ELO 1300
 
 awards:
   - title: Marie Sklodowska-Curie Global Postdoctoral Fellowship
     awarder: European Union Horizon Europe
     date: "2025-01-01"
-    summary: Awarded for the SWELL project on smart wave energy conversion.
+    summary: |
+      Awarded for the SWELL project on smart wave energy conversion.
+
+      This MSCA project is part of the Europe HORIZON programme, 2025 call. The project "Smart Wave Energy conversion via Learning and Low-cost control" (SWELL), is assigned project number 101276493 and the grant agreement is currently under preparation. The total funding assigned to this project is about €332K and has a total duration of 36 months: 24 of which at UWA and 12 at the host institution (Politecnico di Torino), with 5 months secondment at Imperial College London.
+    icon: hero/currency-euro
+  - title: Best poster presenter award
+    awarder: DAUIN Ph.D. Poster Day, Politecnico di Torino
+    date: "2025-01-01"
+    summary: |
+      Best poster presenter award at the DAUIN Ph.D. poster day event organized by the Department of Control and Computer Engineering at Politecnico di Torino.
     icon: hero/trophy

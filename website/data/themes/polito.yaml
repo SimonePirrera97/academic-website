@@ -33,11 +33,11 @@ hugoblox:
       secondary: "#EF7B02"
       neutral: "#E6F4F8"
     surfaces:
-      background: "#001D36"
+      background: "#000B14"
       foreground: "#E6F4F8"
       header:
-        background: "#00284B"
+        background: "#001528"
         foreground: "#FFFFFF"
       footer:
-        background: "#001528"
+        background: "#00070D"
         foreground: "#B9E8F2"

@@ -24,10 +24,6 @@ sections:
       username: me
   - block: resume-awards
     content:
-      title: Awards
-      username: me
-  - block: resume-languages
-    content:
-      title: Languages
+      title: Awards and Grants
       username: me
 ---
