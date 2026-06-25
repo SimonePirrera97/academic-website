@@ -139,7 +139,7 @@ jobs:
       env:
         HUGO_ENVIRONMENT: production
         HUGO_BLOX_LICENSE: ${{ secrets.HUGO_BLOX_LICENSE }}
-        BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        BASE_URL: https://simonepirrera.eu/
       run: |
         echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
         hugo --minify --baseURL "$BASE_URL"
