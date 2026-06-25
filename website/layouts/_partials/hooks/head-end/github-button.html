@@ -35,7 +35,13 @@
     display: none;
   }
 
-  .papers-accordion-control,
+  .papers-accordion-control {
+    display: grid;
+    gap: 1rem;
+    width: min(92vw, 64rem);
+    margin: 0 auto 2.75rem;
+  }
+
   .teaching-panel-control {
     display: grid;
     gap: 1rem;
@@ -150,11 +156,25 @@
   }
 
   .teaching-course-years {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     color: rgb(63 85 105);
     font-size: 0.9rem;
     font-weight: 800;
     line-height: 1.2;
     white-space: nowrap;
+  }
+
+  .teaching-course-years::before {
+    content: "";
+    display: inline-block;
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 2px solid currentColor;
+    border-top-width: 0.3rem;
+    border-radius: 0.16rem;
+    opacity: 0.82;
   }
 
   .paper-category-panel.is-open {
@@ -168,7 +188,7 @@
 
   .paper-entry-trigger {
     display: grid;
-    grid-template-columns: minmax(5rem, 8rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(5rem, 8rem);
     gap: 0.75rem;
     align-items: start;
     width: 100%;
@@ -225,7 +245,7 @@
     text-underline-offset: 0.16em;
   }
 
-  .selected-contribution-list span {
+  .selected-contribution-list > li > span {
     color: rgb(63 85 105);
     font-size: 0.9rem;
     font-weight: 650;
@@ -241,7 +261,7 @@
   .paper-entry-title {
     color: rgb(0 40 75);
     font-size: 1rem;
-    font-weight: 750;
+    font-weight: 800;
     line-height: 1.35;
   }
 
@@ -249,14 +269,14 @@
   .paper-entry-meta {
     color: rgb(63 85 105);
     font-size: 0.88rem;
-    font-weight: 650;
+    font-weight: 500;
     line-height: 1.35;
   }
 
   .paper-entry-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 0.35rem;
   }
 
@@ -298,8 +318,8 @@
 
   .paper-entry-toggle {
     color: rgb(0 123 161);
-    font-size: 0.84rem;
-    font-weight: 800;
+    font-size: 0.78rem;
+    font-weight: 600;
     line-height: 1.2;
   }
 
@@ -533,7 +553,7 @@
     color: rgb(230 244 248);
   }
 
-  .dark .selected-contribution-list span,
+  .dark .selected-contribution-list > li > span,
   .dark .paper-category-counts,
   .dark .teaching-course-link .paper-category-counts,
   .dark .teaching-course-years,
@@ -692,7 +712,7 @@
           {
             title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
             authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
               ['arXiv', 'https://arxiv.org/abs/2509.05853']
@@ -709,7 +729,7 @@
           {
             title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
             authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
               ['arXiv', 'https://arxiv.org/abs/2509.05853']
@@ -719,7 +739,7 @@
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC'],
               ['arXiv', 'https://arxiv.org/abs/2509.05463']
@@ -729,7 +749,7 @@
           {
             title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
             authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
               ['arXiv', 'https://arxiv.org/abs/2509.02102']
@@ -739,7 +759,7 @@
           {
             title: 'Direct data-driven controller design from bounded errors-in-variables measurements',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Conference \u00b7 2025',
+            meta: 'European Control Conference \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:eQOLeE2rZwMC'],
               ['DOI', 'https://doi.org/10.23919/ecc65951.2025.11187201']
@@ -749,7 +769,7 @@
           {
             title: 'A non-iterative approach to direct data-driven control design of MIMO LTI systems',
             authors: 'Mohammad Abuabiah, Vito Cerone, Simone Pirrera, Diego Regruto',
-            meta: 'Journal \u00b7 2023',
+            meta: 'IEEE Access \u00b7 2023',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:2osOgNQ5qMEC'],
               ['DOI', 'https://doi.org/10.1109/access.2023.3329070']
@@ -766,7 +786,7 @@
           {
             title: 'Global Convergence of Control-Based Lagrangian Flows for Non-Convex Optimization',
             authors: 'Simone Pirrera, Francesco Ripa, Daniele Astolfi, Vito Cerone, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint \u00b7 2026',
+            meta: 'Preprint on arXiv \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:LkGwnXOMwfcC'],
               ['arXiv', 'https://arxiv.org/abs/2605.22486']
@@ -776,7 +796,7 @@
           {
             title: 'Feedback control of Lagrange multipliers for non-smooth constrained optimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Andrea Re, Diego Regruto',
-            meta: 'Preprint \u00b7 2026',
+            meta: 'Preprint on arXiv \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:_FxGoFyzp5QC'],
               ['arXiv', 'https://arxiv.org/abs/2604.06511']
@@ -786,7 +806,7 @@
           {
             title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Tyk-4Ss8FVUC'],
               ['arXiv', 'https://arxiv.org/abs/2509.01461']
@@ -796,7 +816,7 @@
           {
             title: 'A new framework for constrained optimization via feedback control of Lagrange multipliers',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Journal \u00b7 2025',
+            meta: 'IEEE Transactions on Automatic Control \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:qjMakFHDy7sC'],
               ['arXiv', 'https://arxiv.org/abs/2403.12738'],
@@ -807,7 +827,7 @@
           {
             title: 'Controlled multipliers optimization: a feedback control approach to constrained optimization',
             authors: 'Diego Regruto, Simone Pirrera',
-            meta: 'Conference \u00b7 2025',
+            meta: 'European Control Conference \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:WF5omc3nYNoC'],
               ['DOI', 'https://doi.org/10.23919/ecc65951.2025.11187163']
@@ -817,7 +837,7 @@
           {
             title: 'A feedback control approach to convex optimization with inequality constraints',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Conference \u00b7 2024',
+            meta: 'IEEE Conference on Decision and Control \u00b7 2024',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:UeHWp8X0CEIC'],
               ['arXiv', 'https://arxiv.org/abs/2409.07168'],
@@ -828,7 +848,7 @@
           {
             title: 'Alternating direction method of multipliers for polynomial optimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Conference \u00b7 2023',
+            meta: 'European Control Conference \u00b7 2023',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:d1gkVwhDpl0C'],
               ['arXiv', 'https://arxiv.org/abs/2502.01439'],
@@ -839,14 +859,14 @@
         ]
       },
       {
-        name: 'Dynamical Systems Learning and Identification',
+        name: 'Dynamical Systems Learning',
         total: '3 papers',
         counts: '0 journals · 1 conference · 2 preprints',
         papers: [
           {
             title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Tyk-4Ss8FVUC'],
               ['arXiv', 'https://arxiv.org/abs/2509.01461']
@@ -856,7 +876,7 @@
           {
             title: 'Set-membership identification of continuous-time MIMO systems via Tustin discretization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:zYLM7Y9cAGgC'],
               ['arXiv', 'https://arxiv.org/abs/2508.19348']
@@ -866,7 +886,7 @@
           {
             title: 'Set-membership identification of continuous-time systems through model transformation',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
-            meta: 'Conference \u00b7 2022',
+            meta: 'IEEE Conference on Decision and Control \u00b7 2022',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:u-x6o8ySG0sC'],
               ['DOI', 'https://doi.org/10.1109/cdc51059.2022.9992815']
@@ -883,7 +903,7 @@
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC'],
               ['arXiv', 'https://arxiv.org/abs/2509.05463']
@@ -893,7 +913,7 @@
           {
             title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
             authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'Preprint \u00b7 2025',
+            meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
               ['arXiv', 'https://arxiv.org/abs/2509.02102']
@@ -951,13 +971,13 @@
           entryButton.tabIndex = 0;
           entryButton.setAttribute('aria-expanded', 'false');
           entryButton.innerHTML = `
-            <span class="paper-entry-links"></span>
             <span class="paper-entry-content">
               <span class="paper-entry-title"></span>
               <span class="paper-entry-meta"></span>
               <span class="paper-entry-authors"></span>
               <span class="paper-entry-toggle">Show abstract</span>
-            </span>`;
+            </span>
+            <span class="paper-entry-links"></span>`;
           entryButton.querySelector('.paper-entry-title').textContent = paper.title;
           entryButton.querySelector('.paper-entry-meta').textContent = paper.meta;
           entryButton.querySelector('.paper-entry-authors').textContent = paper.authors;
@@ -1049,7 +1069,7 @@
       'Wave Energy Converters': '/publications/',
       'Optimal and Robust Control': '/publications/',
       'Constrained Optimization': '/publications/',
-      'Dynamical Systems Learning and Identification': '/publications/',
+      'Dynamical Systems Learning': '/publications/',
       'Electronic Systems': '/publications/'
     };
 
