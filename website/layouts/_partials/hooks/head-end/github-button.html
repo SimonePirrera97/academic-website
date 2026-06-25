@@ -10,6 +10,10 @@
     background-color: rgb(0 11 20);
   }
 
+  :root {
+    --standard-page-width: min(92vw, 64rem);
+  }
+
   #section-resume-biography-3 .resume-biography {
     padding-top: 1.5rem;
   }
@@ -35,21 +39,20 @@
     display: none;
   }
 
-  .papers-page h1,
-  .papers-page .page-header,
-  .teaching-page h1,
-  .teaching-page .page-header,
+  .standard-layout-page h1,
+  .standard-layout-page .page-header,
   .custom-page-heading {
     text-align: center;
   }
 
-  .papers-page .page-body {
+  .standard-layout-page .page-body {
     display: grid;
     justify-items: center;
+    width: 100%;
   }
 
   .custom-page-heading {
-    width: min(92vw, 64rem);
+    width: var(--standard-page-width);
     margin: 0 auto 1.75rem;
   }
 
@@ -60,20 +63,35 @@
     line-height: 1.05;
   }
 
-  .papers-accordion-control {
+  .standard-hidden-heading {
+    display: none !important;
+  }
+
+  .papers-accordion-control,
+  .teaching-panel-control,
+  .project-panel-list {
     display: grid;
     gap: 1rem;
-    width: min(92vw, 64rem);
+    width: var(--standard-page-width);
     margin: 0 auto 2.75rem;
     justify-items: center;
     justify-self: center;
   }
 
-  .teaching-panel-control {
-    display: grid;
-    gap: 1rem;
-    width: min(94vw, 82rem);
+  .experience-page #section-resume-experience,
+  .experience-page #section-resume-skills,
+  .experience-page #section-resume-awards {
+    width: var(--standard-page-width);
     margin: 0 auto 2.75rem;
+  }
+
+  .experience-page #section-resume-experience > *,
+  .experience-page #section-resume-skills > *,
+  .experience-page #section-resume-awards > * {
+    width: 100%;
+    max-width: var(--standard-page-width);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .paper-category-panel,
@@ -389,12 +407,6 @@
     white-space: pre-line;
   }
 
-  .project-panel-list {
-    width: min(92vw, 58rem);
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-
   .project-panel {
     display: grid;
     grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr);
@@ -437,9 +449,8 @@
     grid-template-columns: minmax(11rem, 16rem) minmax(0, 1fr);
     gap: 1.75rem;
     align-items: center;
-    width: min(92vw, 62rem);
-    margin-left: 50%;
-    transform: translateX(-50%);
+    width: var(--standard-page-width);
+    margin: 0 auto;
     border: 1px solid rgb(0 123 161 / 0.18);
     border-radius: 8px;
     background: rgb(255 255 255 / 0.9);
@@ -733,9 +744,41 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector('.papers-accordion-control')) {
-      document.body.classList.add('papers-page');
+    const path = window.location.pathname.replace(/\/+$/, '') || '/';
+    const standardPages = [
+      { path: '/publications', title: 'Papers', className: 'papers-page' },
+      { path: '/experience', title: 'Experience', className: 'experience-page' },
+      { path: '/courses', title: 'Teaching', className: 'teaching-page' },
+      { path: '/projects', title: 'Projects', className: 'projects-page' }
+    ];
+    const standardPage = standardPages.find((page) => page.path === path);
+
+    if (standardPage) {
+      document.body.classList.add('standard-layout-page', standardPage.className);
+    } else if (document.querySelector('.papers-accordion-control')) {
+      document.body.classList.add('standard-layout-page', 'papers-page');
+    } else if (document.querySelector('.project-panel-list')) {
+      document.body.classList.add('standard-layout-page', 'projects-page');
     }
+
+    const hideGeneratedHeading = (title) => {
+      document.querySelectorAll('h1').forEach((heading) => {
+        if (heading.closest('.custom-page-heading') || heading.textContent.trim() !== title) return;
+        const wrapper = heading.closest('.page-header, header, .flex.flex-col.items-center');
+        (wrapper || heading).classList.add('standard-hidden-heading');
+      });
+    };
+
+    const ensurePageHeading = (title, anchor) => {
+      if (!anchor || anchor.parentElement?.querySelector(`.custom-page-heading[data-title="${title}"]`)) return;
+      hideGeneratedHeading(title);
+
+      const heading = document.createElement('header');
+      heading.className = 'custom-page-heading';
+      heading.dataset.title = title;
+      heading.innerHTML = `<h1>${title}</h1>`;
+      anchor.parentNode.insertBefore(heading, anchor);
+    };
 
     const paperData = [
       {
@@ -1056,18 +1099,15 @@
     };
 
     renderPapersPage();
+    ensurePageHeading('Papers', document.querySelector('.papers-accordion-control'));
 
     const renderTeachingPanel = () => {
       if (!document.querySelector('#courses')) return;
-      document.body.classList.add('teaching-page');
-      if (document.querySelector('.teaching-panel-control')) return;
-
       const section = document.querySelector('#courses');
-      if (!section.querySelector('.custom-page-heading')) {
-        const heading = document.createElement('header');
-        heading.className = 'custom-page-heading';
-        heading.innerHTML = '<h1>Teaching</h1>';
-        section.appendChild(heading);
+      const existingPanel = document.querySelector('.teaching-panel-control');
+      if (existingPanel) {
+        ensurePageHeading('Teaching', existingPanel);
+        return;
       }
 
       const container = document.createElement('section');
@@ -1093,13 +1133,13 @@
         </article>`;
 
       section.appendChild(container);
+      ensurePageHeading('Teaching', container);
     };
 
     renderTeachingPanel();
 
-    if (document.querySelector('.project-panel-list')) {
-      document.body.classList.add('projects-page');
-    }
+    ensurePageHeading('Projects', document.querySelector('.project-panel-list'));
+    ensurePageHeading('Experience', document.querySelector('#section-resume-experience, [id*="resume-experience"]'));
 
     const robustCourseUrl = 'https://didattica.polito.it/pls/portal30/gap.pkg_guide.viewGap?p_cod_ins=01QYEYP&p_a_acc=2028&p_header=S&p_lang=IT&multi=N';
     document.querySelectorAll('a[href="/courses/laboratory-robust-identification-control/"], a[href$="/courses/laboratory-robust-identification-control/"]').forEach((link) => {
