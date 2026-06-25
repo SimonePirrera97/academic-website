@@ -51,18 +51,21 @@
   }
 
   .papers-page .page-body > .flex.flex-col.items-center,
+  .teaching-page .page-body > .flex.flex-col.items-center,
   .projects-page .page-body > .flex.flex-col.items-center {
     display: none;
   }
 
-  .papers-accordion-control {
+  .papers-accordion-control,
+  .teaching-panel-control {
     display: grid;
     gap: 1rem;
     width: min(94vw, 82rem);
     margin: 0 auto 2.75rem;
   }
 
-  .paper-category-panel {
+  .paper-category-panel,
+  .teaching-course-panel {
     overflow: hidden;
     border: 1px solid rgb(0 123 161 / 0.18);
     border-radius: 8px;
@@ -126,6 +129,81 @@
     color: rgb(63 85 105);
     font-size: 0.92rem;
     line-height: 1.35;
+  }
+
+  .paper-category-trigger,
+  .teaching-course-link,
+  .paper-entry-trigger {
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+  }
+
+  .paper-category-trigger,
+  .teaching-course-link {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, 11rem) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  .teaching-course-link {
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .teaching-course-link:hover {
+    color: inherit;
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  .teaching-course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.15rem;
+  }
+
+  .teaching-course-meta span {
+    display: inline-flex;
+    border: 1px solid rgb(0 123 161 / 0.28);
+    border-radius: 999px;
+    background: rgb(150 218 234 / 0.24);
+    color: rgb(0 40 75);
+    padding: 0.28rem 0.58rem;
+    font-size: 0.78rem;
+    font-weight: 750;
+    line-height: 1.15;
+  }
+
+  .paper-category-panel.is-open {
+    border-color: rgb(239 123 2 / 0.58);
+    box-shadow: 0 16px 34px rgb(0 40 75 / 0.12);
+  }
+
+  .paper-category-panel:not(.is-open) .paper-category-list {
+    display: none;
+  }
+
+  .paper-entry-trigger {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(11rem, 1fr) minmax(5rem, auto) auto;
+    gap: 0.75rem;
+    align-items: start;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .paper-entry:not(.is-open) .paper-entry-abstract {
+    display: none;
   }
 
   .papers-display-control {
@@ -478,6 +556,7 @@
     }
 
     .paper-category-panel > summary,
+    .teaching-course-link,
     .paper-entry > summary {
       grid-template-columns: 1fr;
     }
@@ -502,6 +581,16 @@
 
     .project-detail-media {
       position: static;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .paper-entry-trigger {
+      grid-template-columns: 1fr;
+    }
+
+    .paper-entry-links {
+      justify-content: flex-start;
     }
   }
 
@@ -642,7 +731,8 @@
   .dark .papers-display-tabs,
   .dark .selected-contribution-list li,
   .dark .project-panel,
-  .dark .paper-category-panel {
+  .dark .paper-category-panel,
+  .dark .teaching-course-panel {
     border-color: rgb(150 218 234 / 0.28);
     background: rgb(0 40 75 / 0.72);
   }
@@ -664,6 +754,7 @@
   .dark .papers-display-tabs label,
   .dark .selected-contribution-list > li > a,
   .dark .paper-category-name,
+  .dark .teaching-course-link .paper-category-name,
   .dark .paper-entry-title,
   .dark .project-panel-body h2,
   .dark .project-detail-body h2 {
@@ -677,6 +768,7 @@
 
   .dark .selected-contribution-list span,
   .dark .paper-category-counts,
+  .dark .teaching-course-link .paper-category-counts,
   .dark .paper-entry-authors,
   .dark .paper-entry-meta,
   .dark .paper-entry-abstract,
@@ -691,6 +783,12 @@
 
   .dark .paper-category-total {
     color: rgb(150 218 234);
+  }
+
+  .dark .teaching-course-meta span {
+    border-color: rgb(150 218 234 / 0.34);
+    background: rgb(0 29 54 / 0.86);
+    color: rgb(185 232 242);
   }
 
   .dark .paper-entry-links a {
@@ -843,6 +941,351 @@
     if (document.querySelector('.papers-display-control, .papers-accordion-control')) {
       document.body.classList.add('papers-page');
     }
+
+    const paperData = [
+      {
+        name: 'Wave Energy Converters',
+        total: '1 paper',
+        counts: '0 journals · 0 conferences · 1 preprint',
+        papers: [
+          {
+            title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
+            authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
+              ['arXiv', 'https://arxiv.org/abs/2509.05853']
+            ],
+            abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
+          }
+        ]
+      },
+      {
+        name: 'Optimal and Robust Control',
+        total: '5 papers',
+        counts: '1 journal · 1 conference · 3 preprints',
+        papers: [
+          {
+            title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
+            authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
+              ['arXiv', 'https://arxiv.org/abs/2509.05853']
+            ],
+            abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
+          },
+          {
+            title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
+            authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC'],
+              ['arXiv', 'https://arxiv.org/abs/2509.05463']
+            ],
+            abstract: 'This paper proposes an approach for designing analog electronic circuits that implement model predictive control policies for affine plants. It combines reduced-complexity explicit MPC methods to obtain a circuit using limited, low-latency, commercially available components. The design is applied to DC-DC buck converters, with stability analysis and simulations showing strong load disturbance rejection performance.'
+          },
+          {
+            title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
+            authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
+              ['arXiv', 'https://arxiv.org/abs/2509.02102']
+            ],
+            abstract: 'This paper presents a robust load disturbance rejection method for DC-DC buck converters based on two nested feedback loops. The outer loop is designed with H-infinity optimal control and analyzed through mu-analysis for robust stability, while the inner loop introduces a load estimation-compensation scheme. Numerical and experimental results show improved disturbance rejection over common buck converter control approaches.'
+          },
+          {
+            title: 'Direct data-driven controller design from bounded errors-in-variables measurements',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
+            meta: 'Conference · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:eQOLeE2rZwMC'],
+              ['DOI', 'https://doi.org/10.23919/ecc65951.2025.11187201']
+            ],
+            abstract: 'This paper addresses direct data-driven controller design when the available measurements are affected by bounded errors-in-variables uncertainty. It formulates the controller design problem using set-membership information from data, with the aim of obtaining controllers that are consistent with all admissible systems described by the measurement bounds.'
+          },
+          {
+            title: 'A non-iterative approach to direct data-driven control design of MIMO LTI systems',
+            authors: 'Mohammad Abuabiah, Vito Cerone, Simone Pirrera, Diego Regruto',
+            meta: 'Journal · 2023',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:2osOgNQ5qMEC'],
+              ['DOI', 'https://doi.org/10.1109/access.2023.3329070']
+            ],
+            abstract: 'This paper proposes a non-iterative method for direct data-driven control design of multi-input multi-output linear time-invariant systems. The method uses experimental data to tune a controller without an intermediate model-identification step, targeting a one-shot design procedure suitable for MIMO settings.'
+          }
+        ]
+      },
+      {
+        name: 'Constrained Optimization',
+        total: '7 papers',
+        counts: '1 journal · 3 conferences · 3 preprints',
+        papers: [
+          {
+            title: 'Global Convergence of Control-Based Lagrangian Flows for Non-Convex Optimization',
+            authors: 'Simone Pirrera, Francesco Ripa, Daniele Astolfi, Vito Cerone, Sophie M. Fosson, Diego Regruto',
+            meta: 'Preprint · 2026',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:LkGwnXOMwfcC'],
+              ['arXiv', 'https://arxiv.org/abs/2605.22486']
+            ],
+            abstract: 'This paper studies continuous-time dynamics for equality-constrained optimization based on control-theoretic Lagrangian methods. It considers dynamics induced by proportional-integral and feedback-linearization controllers, and proves global exponential convergence for non-convex problems satisfying a suitable convexity property on the constraint manifold.'
+          },
+          {
+            title: 'Feedback control of Lagrange multipliers for non-smooth constrained optimization',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Andrea Re, Diego Regruto',
+            meta: 'Preprint · 2026',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:_FxGoFyzp5QC'],
+              ['arXiv', 'https://arxiv.org/abs/2604.06511']
+            ],
+            abstract: 'This work develops a control-theoretic framework for constrained optimization problems with composite objective functions that include non-differentiable terms. Using a proximal augmented Lagrangian formulation, it constructs a plant whose equilibria correspond to stationary points and proposes static and dynamic controllers that lead to new optimization algorithms with global exponential convergence under strong convexity assumptions.'
+          },
+          {
+            title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Tyk-4Ss8FVUC'],
+              ['arXiv', 'https://arxiv.org/abs/2509.01461']
+            ],
+            abstract: 'This paper formulates nonlinear input-output system identification through simulation error minimization as a constrained optimization problem. The method addresses vanishing-gradient issues and uses feedback-linearization controlled multipliers optimization. The paper proves local convergence and shows, through numerical experiments, improved computational effort and accuracy compared with gradient-based methods.'
+          },
+          {
+            title: 'A new framework for constrained optimization via feedback control of Lagrange multipliers',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
+            meta: 'Journal · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:qjMakFHDy7sC'],
+              ['arXiv', 'https://arxiv.org/abs/2403.12738'],
+              ['DOI', 'https://doi.org/10.1109/tac.2025.3568651']
+            ],
+            abstract: 'This work proposes a continuous-time control-theoretic framework for equality-constrained optimization. The Lagrange multipliers act as the control input and the constraints are the output to be regulated. The paper studies proportional-integral and feedback-linearization control laws, derives related algorithms, analyzes convergence, and compares them numerically with existing methods.'
+          },
+          {
+            title: 'Controlled multipliers optimization: a feedback control approach to constrained optimization',
+            authors: 'Diego Regruto, Simone Pirrera',
+            meta: 'Conference · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:WF5omc3nYNoC'],
+              ['DOI', 'https://doi.org/10.23919/ecc65951.2025.11187163']
+            ],
+            abstract: 'This short conference contribution presents controlled multipliers optimization as a feedback-control approach to constrained optimization. It frames multiplier dynamics as part of a control design problem, connecting constrained optimization algorithms with regulation ideas from feedback control.'
+          },
+          {
+            title: 'A feedback control approach to convex optimization with inequality constraints',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
+            meta: 'Conference · 2024',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:UeHWp8X0CEIC'],
+              ['arXiv', 'https://arxiv.org/abs/2409.07168'],
+              ['DOI', 'https://doi.org/10.1109/cdc56724.2024.10885825']
+            ],
+            abstract: 'This paper proposes a continuous-time algorithm for inequality-constrained convex optimization inspired by proportional-integral control. Its proportional term acts on the primal variable through the Lagrange multipliers, simplifying the proof of exponential convergence for smooth strongly convex problems and improving convergence speed in numerical examples compared with primal-dual gradient dynamics.'
+          },
+          {
+            title: 'Alternating direction method of multipliers for polynomial optimization',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
+            meta: 'Conference · 2023',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:d1gkVwhDpl0C'],
+              ['arXiv', 'https://arxiv.org/abs/2502.01439'],
+              ['DOI', 'https://doi.org/10.23919/ecc57647.2023.10178190']
+            ],
+            abstract: 'This paper studies polynomial optimization through a local minimization approach based on the alternating direction method of multipliers. Motivated by the complexity of global semidefinite relaxations, it develops an ADMM algorithm tailored to polynomial optimization, proves convergence, and evaluates the method against state-of-the-art approaches on a numerical example.'
+          }
+        ]
+      },
+      {
+        name: 'Dynamical Systems Learning and Identification',
+        total: '3 papers',
+        counts: '0 journals · 1 conference · 2 preprints',
+        papers: [
+          {
+            title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Tyk-4Ss8FVUC'],
+              ['arXiv', 'https://arxiv.org/abs/2509.01461']
+            ],
+            abstract: 'This paper formulates nonlinear input-output system identification through simulation error minimization as a constrained optimization problem. The method addresses vanishing-gradient issues and uses feedback-linearization controlled multipliers optimization. The paper proves local convergence and shows, through numerical experiments, improved computational effort and accuracy compared with gradient-based methods.'
+          },
+          {
+            title: 'Set-membership identification of continuous-time MIMO systems via Tustin discretization',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:zYLM7Y9cAGgC'],
+              ['arXiv', 'https://arxiv.org/abs/2508.19348']
+            ],
+            abstract: 'This paper addresses continuous-time system identification from sampled data corrupted by unknown-but-bounded errors. It proposes a set-membership method based on Tustin discretization, avoiding direct derivative measurements while handling bounded errors on all measured signals. The resulting formulation becomes an affordable polynomial optimization problem, validated on simulation and experimental data.'
+          },
+          {
+            title: 'Set-membership identification of continuous-time systems through model transformation',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
+            meta: 'Conference · 2022',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:u-x6o8ySG0sC'],
+              ['DOI', 'https://doi.org/10.1109/cdc51059.2022.9992815']
+            ],
+            abstract: 'This paper studies set-membership identification for continuous-time systems using model transformation. It addresses parameter estimation when data are affected by bounded uncertainty, reformulating the identification task so that admissible model parameters can be characterized consistently with the measurement bounds.'
+          }
+        ]
+      },
+      {
+        name: 'Electronic Systems',
+        total: '2 papers',
+        counts: '0 journals · 0 conferences · 2 preprints',
+        papers: [
+          {
+            title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
+            authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC'],
+              ['arXiv', 'https://arxiv.org/abs/2509.05463']
+            ],
+            abstract: 'This paper proposes an approach for designing analog electronic circuits that implement model predictive control policies for affine plants. It combines reduced-complexity explicit MPC methods to obtain a circuit using limited, low-latency, commercially available components. The design is applied to DC-DC buck converters, with stability analysis and simulations showing strong load disturbance rejection performance.'
+          },
+          {
+            title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
+            authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
+            meta: 'Preprint · 2025',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
+              ['arXiv', 'https://arxiv.org/abs/2509.02102']
+            ],
+            abstract: 'This paper presents a robust load disturbance rejection method for DC-DC buck converters based on two nested feedback loops. The outer loop is designed with H-infinity optimal control and analyzed through mu-analysis for robust stability, while the inner loop introduces a load estimation-compensation scheme. Numerical and experimental results show improved disturbance rejection over common buck converter control approaches.'
+          }
+        ]
+      }
+    ];
+
+    const renderPapersPage = () => {
+      const root = document.querySelector('.papers-accordion-control');
+      if (!root || root.dataset.rendered === 'true') return;
+      root.dataset.rendered = 'true';
+      root.textContent = '';
+
+      paperData.forEach((category, categoryIndex) => {
+        const panel = document.createElement('section');
+        panel.className = `paper-category-panel${categoryIndex === 0 ? ' is-open' : ''}`;
+
+        const button = document.createElement('button');
+        button.className = 'paper-category-trigger';
+        button.type = 'button';
+        button.setAttribute('aria-expanded', categoryIndex === 0 ? 'true' : 'false');
+        button.innerHTML = `
+          <span class="paper-category-media" style="--topic-image: url('/publications/preprint/featured.jpg');" aria-hidden="true"></span>
+          <span class="paper-category-body">
+            <span class="paper-category-name"></span>
+            <span class="paper-category-total"></span>
+            <span class="paper-category-counts"></span>
+          </span>`;
+        button.querySelector('.paper-category-name').textContent = category.name;
+        button.querySelector('.paper-category-total').textContent = category.total;
+        button.querySelector('.paper-category-counts').textContent = category.counts;
+
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.paper-category-panel').forEach((otherPanel) => {
+            const isCurrent = otherPanel === panel;
+            otherPanel.classList.toggle('is-open', isCurrent);
+            otherPanel.querySelector('.paper-category-trigger')?.setAttribute('aria-expanded', isCurrent ? 'true' : 'false');
+          });
+        });
+
+        const list = document.createElement('ol');
+        list.className = 'selected-contribution-list paper-category-list';
+
+        category.papers.forEach((paper) => {
+          const item = document.createElement('li');
+          const entry = document.createElement('article');
+          entry.className = 'paper-entry';
+
+          const entryButton = document.createElement('div');
+          entryButton.className = 'paper-entry-trigger';
+          entryButton.setAttribute('role', 'button');
+          entryButton.tabIndex = 0;
+          entryButton.setAttribute('aria-expanded', 'false');
+          entryButton.innerHTML = `
+            <span class="paper-entry-title"></span>
+            <span class="paper-entry-authors"></span>
+            <span class="paper-entry-meta"></span>
+            <span class="paper-entry-links"></span>`;
+          entryButton.querySelector('.paper-entry-title').textContent = paper.title;
+          entryButton.querySelector('.paper-entry-authors').textContent = paper.authors;
+          entryButton.querySelector('.paper-entry-meta').textContent = paper.meta;
+
+          const links = entryButton.querySelector('.paper-entry-links');
+          paper.links.forEach(([label, href]) => {
+            const link = document.createElement('a');
+            link.href = href;
+            link.textContent = label;
+            link.addEventListener('click', (event) => event.stopPropagation());
+            links.appendChild(link);
+          });
+
+          const abstract = document.createElement('p');
+          abstract.className = 'paper-entry-abstract';
+          abstract.textContent = paper.abstract;
+
+          entryButton.addEventListener('click', () => {
+            const isOpen = entry.classList.toggle('is-open');
+            entryButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          });
+          entryButton.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            entryButton.click();
+          });
+
+          entry.appendChild(entryButton);
+          entry.appendChild(abstract);
+          item.appendChild(entry);
+          list.appendChild(item);
+        });
+
+        panel.appendChild(button);
+        panel.appendChild(list);
+        root.appendChild(panel);
+      });
+    };
+
+    renderPapersPage();
+
+    const renderTeachingPanel = () => {
+      if (!document.querySelector('#courses')) return;
+      document.body.classList.add('teaching-page');
+      if (document.querySelector('.teaching-panel-control')) return;
+
+      const section = document.querySelector('#courses');
+      const container = document.createElement('section');
+      container.className = 'teaching-panel-control';
+      container.setAttribute('aria-label', 'Teaching activities');
+      container.innerHTML = `
+        <article class="teaching-course-panel">
+          <a class="teaching-course-link" href="https://didattica.polito.it/pls/portal30/gap.pkg_guide.viewGap?p_cod_ins=01QYEYP&p_a_acc=2028&p_header=S&p_lang=IT&multi=N">
+            <span class="paper-category-media" style="--topic-image: url('/publications/preprint/featured.jpg');" aria-hidden="true"></span>
+            <span class="paper-category-body">
+              <span class="paper-category-name">Laboratory of Robust Identification and Control</span>
+              <span class="paper-category-total">Main teacher: Prof. Diego Regruto</span>
+              <span class="paper-category-counts">Topics: Control systems, System identification</span>
+              <span class="teaching-course-meta">
+                <span>Master degree course</span>
+                <span>Politecnico di Torino</span>
+                <span>Academic years 2022-2023 to 2025-2026</span>
+              </span>
+            </span>
+          </a>
+        </article>`;
+
+      const body = section.querySelector('.page-body, .prose, .container, .max-w-screen-xl') || section;
+      body.appendChild(container);
+    };
+
+    renderTeachingPanel();
 
     document.querySelectorAll('.paper-category-panel').forEach((panel) => {
       panel.addEventListener('toggle', () => {

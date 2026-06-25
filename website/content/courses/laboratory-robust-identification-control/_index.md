@@ -13,11 +13,20 @@ tags:
 
 content_meta:
   content_type: 'Teaching'
-  difficulty: 'Graduate'
-  prerequisites: ['Control systems', 'System identification']
+  degree: 'Master degree course'
+  institution: 'Politecnico di Torino'
+  academic_years: '2022-2023 to 2025-2026'
+  main_teacher: 'Prof. Diego Regruto'
+  topics: ['Control systems', 'System identification']
   trending: false
 ---
 
 Laboratory of Robust Identification and Control.
 
-Main teacher: Diego Regruto.
+Main teacher: Prof. Diego Regruto.
+
+Topics: Control systems, System identification.
+
+Master degree course, Politecnico di Torino.
+
+Academic years: 2022-2023 to 2025-2026.
