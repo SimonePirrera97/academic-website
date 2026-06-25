@@ -43,6 +43,11 @@
     text-align: center;
   }
 
+  .papers-page .page-body {
+    display: grid;
+    justify-items: center;
+  }
+
   .custom-page-heading {
     width: min(92vw, 64rem);
     margin: 0 auto 1.75rem;
@@ -60,6 +65,8 @@
     gap: 1rem;
     width: min(92vw, 64rem);
     margin: 0 auto 2.75rem;
+    justify-items: center;
+    justify-self: center;
   }
 
   .teaching-panel-control {
@@ -71,6 +78,7 @@
 
   .paper-category-panel,
   .teaching-course-panel {
+    width: 100%;
     overflow: hidden;
     border: 1px solid rgb(0 123 161 / 0.18);
     border-radius: 8px;
