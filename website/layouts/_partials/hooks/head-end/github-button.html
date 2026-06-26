@@ -485,20 +485,20 @@
     white-space: pre-line;
   }
 
-  .experience-page #section-resume-skills .resume-skills-groups {
+  .experience-page #section-resume-skills .custom-skills-grid {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(14rem, 28rem));
     justify-content: center;
     align-items: start;
-    column-gap: clamp(1.5rem, 5vw, 3rem);
+    column-gap: clamp(2rem, 6vw, 4rem);
     row-gap: 1.5rem;
     width: min(100%, var(--skills-panel-width));
-    margin-top: 0.75rem !important;
+    margin-top: 0.65rem !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
-  .experience-page #section-resume-skills .resume-skill-group {
+  .experience-page #section-resume-skills .custom-skill-group {
     width: 100%;
     max-width: 28rem;
     margin-top: 0 !important;
@@ -506,22 +506,33 @@
     margin-right: 0 !important;
   }
 
-  .experience-page #section-resume-skills .resume-skill-group--programming {
-    justify-self: stretch;
+  .experience-page #section-resume-skills .custom-skill-group h3 {
+    margin: 0 0 1.15rem;
+    color: rgb(0 40 75);
+    font-size: 1.18rem;
+    font-weight: 800;
+    line-height: 1.2;
   }
 
-  .experience-page #section-resume-skills .resume-skill-group--hobbies {
-    justify-self: stretch;
+  .experience-page #section-resume-skills .custom-skill-group ul {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .experience-page #section-resume-skills .custom-skill-group li {
+    color: rgb(0 40 75);
+    font-size: 0.98rem;
+    font-weight: 650;
+    line-height: 1.45;
   }
 
   @media (max-width: 767px) {
-    .experience-page #section-resume-skills .resume-skills-groups {
+    .experience-page #section-resume-skills .custom-skills-grid {
       grid-template-columns: minmax(0, min(100%, 28rem));
       justify-content: center;
-    }
-
-    .experience-page #section-resume-skills .resume-skill-group {
-      justify-self: stretch;
     }
   }
 
@@ -1346,37 +1357,37 @@
 
     const skillsSection = document.querySelector('#section-resume-skills');
     if (skillsSection) {
-      const findSkillGroup = (label) => {
-        const heading = Array.from(skillsSection.querySelectorAll('h2, h3, h4, p, span, div'))
-          .find((item) => item.textContent.trim() === label);
-        if (!heading) return null;
+      const heading = Array.from(skillsSection.querySelectorAll('h2')).find((item) => item.textContent.trim() === 'Skills & Hobbies');
+      if (heading && !skillsSection.querySelector('.custom-skills-grid')) {
+        const headingParent = heading.parentElement;
+        Array.from(skillsSection.children).forEach((child) => {
+          if (child !== headingParent && !child.contains(heading) && !child.classList.contains('custom-skills-grid')) child.style.display = 'none';
+        });
+        Array.from(headingParent.children).forEach((child) => {
+          if (child !== heading && !child.classList.contains('custom-skills-grid')) child.style.display = 'none';
+        });
 
-        let group = heading;
-        while (group.parentElement && group.parentElement !== skillsSection && !group.querySelector('ul, ol')) {
-          group = group.parentElement;
-        }
-        return group;
-      };
-
-      const programmingGroup = findSkillGroup('Programming Skills');
-      const hobbiesGroup = findSkillGroup('Hobbies');
-
-      if (programmingGroup && hobbiesGroup) {
-        programmingGroup.classList.add('resume-skill-group', 'resume-skill-group--programming');
-        hobbiesGroup.classList.add('resume-skill-group', 'resume-skill-group--hobbies');
-
-        let groupsWrapper = programmingGroup.parentElement === hobbiesGroup.parentElement
-          ? programmingGroup.parentElement
-          : skillsSection.querySelector('.resume-skills-groups');
-
-        if (!groupsWrapper) {
-          groupsWrapper = document.createElement('div');
-          groupsWrapper.className = 'resume-skills-groups';
-          programmingGroup.parentElement.insertBefore(groupsWrapper, programmingGroup);
-          groupsWrapper.append(programmingGroup, hobbiesGroup);
-        } else {
-          groupsWrapper.classList.add('resume-skills-groups');
-        }
+        const customSkills = document.createElement('div');
+        customSkills.className = 'custom-skills-grid';
+        customSkills.innerHTML = `
+          <section class="custom-skill-group">
+            <h3>Programming Skills</h3>
+            <ul>
+              <li>Python</li>
+              <li>MATLAB</li>
+              <li>Julia</li>
+              <li>C/C++</li>
+              <li>VHDL</li>
+            </ul>
+          </section>
+          <section class="custom-skill-group">
+            <h3>Hobbies</h3>
+            <ul>
+              <li>Running<br>personal best 12 km<br>at 5:50 min/km</li>
+              <li>Chess<br>elo 1300 on chess.com</li>
+            </ul>
+          </section>`;
+        heading.insertAdjacentElement('afterend', customSkills);
       }
     }
   });
