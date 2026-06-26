@@ -13,7 +13,6 @@
   :root {
     --standard-page-width: min(92vw, 64rem);
     --experience-panel-width: min(84vw, 56rem);
-    --skills-panel-width: min(92vw, 64rem);
     --page-top-gap: 2.25rem;
     --title-content-gap: 2rem;
     --section-gap: 2rem;
@@ -127,7 +126,6 @@
   }
 
   .experience-page #section-resume-experience,
-  .experience-page #section-resume-skills,
   .experience-page #section-resume-awards {
     width: var(--standard-page-width);
     margin: 0 auto var(--section-gap);
@@ -135,30 +133,22 @@
     padding-bottom: 0 !important;
   }
 
-  .experience-page #section-resume-skills,
   .experience-page #section-resume-awards {
     margin-top: 0 !important;
   }
 
-  .experience-page #section-resume-skills > :first-child,
   .experience-page #section-resume-awards > :first-child,
-  .experience-page #section-resume-skills h2,
   .experience-page #section-resume-awards h2 {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
   .experience-page #section-resume-experience > *,
-  .experience-page #section-resume-skills > *,
   .experience-page #section-resume-awards > * {
     width: 100%;
     max-width: var(--standard-page-width);
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .experience-page #section-resume-skills > * {
-    max-width: var(--skills-panel-width);
   }
 
   .paper-category-panel,
@@ -471,70 +461,6 @@
     text-decoration: none;
     box-shadow: 0 10px 22px rgb(0 40 75 / 0.22);
     transform: translateY(-1px);
-  }
-
-  #section-resume-skills progress,
-  #section-resume-skills [role="progressbar"],
-  #section-resume-skills .progress,
-  #section-resume-skills .skill-bar {
-    display: none;
-  }
-
-  #section-resume-skills li,
-  #section-resume-skills span {
-    white-space: pre-line;
-  }
-
-  .experience-page #section-resume-skills .custom-skills-grid {
-    display: grid !important;
-    grid-template-columns: minmax(12rem, 16rem) minmax(20rem, 28rem);
-    justify-content: center;
-    align-items: start;
-    column-gap: clamp(2rem, 5vw, 3.5rem);
-    row-gap: 1.5rem;
-    width: fit-content;
-    max-width: min(100%, var(--skills-panel-width));
-    margin-top: 0.65rem !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .experience-page #section-resume-skills .custom-skill-group {
-    width: 100%;
-    margin-top: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .experience-page #section-resume-skills .custom-skill-group h3 {
-    margin: 0 0 1.15rem;
-    color: rgb(0 40 75);
-    font-size: 1.18rem;
-    font-weight: 800;
-    line-height: 1.2;
-  }
-
-  .experience-page #section-resume-skills .custom-skill-group ul {
-    display: grid;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .experience-page #section-resume-skills .custom-skill-group li {
-    color: rgb(0 40 75);
-    font-size: 0.98rem;
-    font-weight: 650;
-    line-height: 1.45;
-  }
-
-  @media (max-width: 767px) {
-    .experience-page #section-resume-skills .custom-skills-grid {
-      grid-template-columns: minmax(0, min(100%, 28rem));
-      width: min(100%, 28rem);
-      justify-content: center;
-    }
   }
 
   .project-panel {
@@ -1356,40 +1282,5 @@
       item.textContent = `${formatDate(match[1])} - ${formatDate(match[2])}`;
     });
 
-    const skillsSection = document.querySelector('#section-resume-skills');
-    if (skillsSection) {
-      const heading = Array.from(skillsSection.querySelectorAll('h2')).find((item) => item.textContent.trim() === 'Skills & Hobbies');
-      if (heading && !skillsSection.querySelector('.custom-skills-grid')) {
-        const headingParent = heading.parentElement;
-        Array.from(skillsSection.children).forEach((child) => {
-          if (child !== headingParent && !child.contains(heading) && !child.classList.contains('custom-skills-grid')) child.style.display = 'none';
-        });
-        Array.from(headingParent.children).forEach((child) => {
-          if (child !== heading && !child.classList.contains('custom-skills-grid')) child.style.display = 'none';
-        });
-
-        const customSkills = document.createElement('div');
-        customSkills.className = 'custom-skills-grid';
-        customSkills.innerHTML = `
-          <section class="custom-skill-group">
-            <h3>Programming Skills</h3>
-            <ul>
-              <li>Python</li>
-              <li>MATLAB</li>
-              <li>Julia</li>
-              <li>C/C++</li>
-              <li>VHDL</li>
-            </ul>
-          </section>
-          <section class="custom-skill-group">
-            <h3>Hobbies</h3>
-            <ul>
-              <li>Running<br>personal best 12 km<br>at 5:50 min/km</li>
-              <li>Chess<br>elo 1300 on chess.com</li>
-            </ul>
-          </section>`;
-        heading.insertAdjacentElement('afterend', customSkills);
-      }
-    }
   });
 </script>

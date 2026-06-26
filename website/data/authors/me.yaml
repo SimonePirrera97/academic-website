@@ -69,23 +69,6 @@ experience:
     summary: |
       Research on control, optimization, and data-driven methods for dynamical systems.
 
-skills:
-  - name: Programming Skills
-    items:
-      - label: Python
-      - label: MATLAB
-      - label: Julia
-      - label: C/C++
-      - label: VHDL
-  - name: Hobbies
-    items:
-      - label: |-
-          Running
-          personal best 12 km at 5:50 min/km
-      - label: |-
-          Chess
-          elo 1300 on chess.com
-
 awards:
   - title: Marie Sklodowska-Curie Global Postdoctoral Fellowship
     awarder: European Union Horizon Europe
