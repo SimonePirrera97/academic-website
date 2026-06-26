@@ -13,9 +13,10 @@
   :root {
     --standard-page-width: min(92vw, 64rem);
     --experience-panel-width: min(84vw, 56rem);
+    --skills-panel-width: min(92vw, 46rem);
     --page-top-gap: 2.25rem;
     --title-content-gap: 2rem;
-    --section-gap: 1.25rem;
+    --section-gap: 2rem;
   }
 
   #section-resume-biography-3 .resume-biography {
@@ -148,6 +149,10 @@
     max-width: var(--standard-page-width);
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .experience-page #section-resume-skills > * {
+    max-width: var(--skills-panel-width);
   }
 
   .paper-category-panel,
@@ -474,10 +479,40 @@
     white-space: pre-line;
   }
 
-  #section-resume-skills .mb-6:first-of-type,
-  #section-resume-skills .space-y-4:first-of-type,
-  #section-resume-skills ul:first-of-type {
-    margin-left: clamp(1.5rem, 6vw, 5rem);
+  .experience-page #section-resume-skills .resume-skills-groups {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    justify-content: center;
+    align-items: start;
+    column-gap: clamp(2rem, 7vw, 4.5rem);
+    row-gap: 1.5rem;
+    width: 100%;
+  }
+
+  .experience-page #section-resume-skills .resume-skill-group {
+    width: max-content;
+    max-width: min(18rem, 100%);
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .experience-page #section-resume-skills .resume-skill-group--programming {
+    justify-self: end;
+  }
+
+  .experience-page #section-resume-skills .resume-skill-group--hobbies {
+    justify-self: start;
+  }
+
+  @media (max-width: 767px) {
+    .experience-page #section-resume-skills .resume-skills-groups {
+      grid-template-columns: minmax(0, max-content);
+      justify-content: start;
+    }
+
+    .experience-page #section-resume-skills .resume-skill-group {
+      justify-self: start;
+    }
   }
 
   .project-panel {
@@ -857,14 +892,15 @@
       {
         name: 'Wave Energy Converters',
         total: '1 paper',
-        counts: '0 journals · 0 conferences · 1 preprint',
+        counts: '1 journal · 0 conferences · 0 preprints',
         papers: [
           {
             title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
             authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint on arXiv \u00b7 2025',
+            meta: 'IEEE Xplore \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
+              ['IEEE Xplore', 'https://ieeexplore.ieee.org/document/11575262'],
               ['arXiv', 'https://arxiv.org/abs/2509.05853']
             ],
             abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
@@ -874,14 +910,15 @@
       {
         name: 'Optimal and Robust Control',
         total: '5 papers',
-        counts: '1 journal · 1 conference · 3 preprints',
+        counts: '2 journals · 1 conference · 2 preprints',
         papers: [
           {
             title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
             authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint on arXiv \u00b7 2025',
+            meta: 'IEEE Xplore \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
+              ['IEEE Xplore', 'https://ieeexplore.ieee.org/document/11575262'],
               ['arXiv', 'https://arxiv.org/abs/2509.05853']
             ],
             abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
@@ -1100,10 +1137,16 @@
         button.querySelector('.paper-category-counts').textContent = category.counts;
 
         button.addEventListener('click', () => {
+          const shouldOpenPanel = !panel.classList.contains('is-open');
+
           document.querySelectorAll('.paper-category-panel').forEach((otherPanel) => {
-            const isCurrent = otherPanel === panel;
-            otherPanel.classList.toggle('is-open', isCurrent);
-            otherPanel.querySelector('.paper-category-trigger')?.setAttribute('aria-expanded', isCurrent ? 'true' : 'false');
+            const isOpen = otherPanel === panel && shouldOpenPanel;
+            otherPanel.classList.toggle('is-open', isOpen);
+
+            const categoryTrigger = otherPanel.querySelector('.paper-category-trigger');
+            categoryTrigger?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            const categoryAction = categoryTrigger?.querySelector('.paper-category-action');
+            if (categoryAction) categoryAction.textContent = isOpen ? 'click to collapse' : 'click to show';
           });
         });
 
@@ -1260,5 +1303,33 @@
       if (!match) return;
       item.textContent = `${formatDate(match[1])} - ${formatDate(match[2])}`;
     });
+
+    const skillsSection = document.querySelector('#section-resume-skills');
+    if (skillsSection) {
+      const findSkillGroup = (label) => {
+        const heading = Array.from(skillsSection.querySelectorAll('h2, h3, h4, p, span, div'))
+          .find((item) => item.textContent.trim() === label);
+        if (!heading) return null;
+
+        let group = heading;
+        while (group.parentElement && group.parentElement !== skillsSection && !group.querySelector('ul, ol')) {
+          group = group.parentElement;
+        }
+        return group;
+      };
+
+      const programmingGroup = findSkillGroup('Programming Skills');
+      const hobbiesGroup = findSkillGroup('Hobbies');
+
+      if (programmingGroup && hobbiesGroup) {
+        programmingGroup.classList.add('resume-skill-group', 'resume-skill-group--programming');
+        hobbiesGroup.classList.add('resume-skill-group', 'resume-skill-group--hobbies');
+
+        const groupsWrapper = programmingGroup.parentElement === hobbiesGroup.parentElement
+          ? programmingGroup.parentElement
+          : null;
+        groupsWrapper?.classList.add('resume-skills-groups');
+      }
+    }
   });
 </script>

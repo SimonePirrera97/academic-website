@@ -9,8 +9,8 @@ date: "2025-09-06T00:00:00Z"
 publishDate: "2025-09-06T00:00:00Z"
 publication_types: ["article"]
 publication:
-  name: "arXiv preprint arXiv:2509.05853"
-peer_reviewed: false
+  name: "IEEE Xplore, document 11575262"
+peer_reviewed: true
 open_access: true
 tags:
   - Wave Energy Converters
@@ -20,6 +20,8 @@ hugoblox:
   ids:
     arxiv: "2509.05853"
 links:
+  - name: IEEE Xplore
+    url: "https://ieeexplore.ieee.org/document/11575262"
   - name: arXiv
     url: "https://arxiv.org/abs/2509.05853"
   - type: custom
