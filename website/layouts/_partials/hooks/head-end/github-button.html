@@ -487,12 +487,13 @@
 
   .experience-page #section-resume-skills .custom-skills-grid {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(14rem, 28rem));
+    grid-template-columns: minmax(12rem, 16rem) minmax(20rem, 28rem);
     justify-content: center;
     align-items: start;
-    column-gap: clamp(2rem, 6vw, 4rem);
+    column-gap: clamp(2rem, 5vw, 3.5rem);
     row-gap: 1.5rem;
-    width: min(100%, var(--skills-panel-width));
+    width: fit-content;
+    max-width: min(100%, var(--skills-panel-width));
     margin-top: 0.65rem !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -500,7 +501,6 @@
 
   .experience-page #section-resume-skills .custom-skill-group {
     width: 100%;
-    max-width: 28rem;
     margin-top: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -532,6 +532,7 @@
   @media (max-width: 767px) {
     .experience-page #section-resume-skills .custom-skills-grid {
       grid-template-columns: minmax(0, min(100%, 28rem));
+      width: min(100%, 28rem);
       justify-content: center;
     }
   }
