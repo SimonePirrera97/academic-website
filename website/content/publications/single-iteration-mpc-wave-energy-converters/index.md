@@ -5,11 +5,11 @@ authors:
   - N. Faedo
   - S. M. Fosson
   - D. Regruto
-date: "2025-09-06T00:00:00Z"
-publishDate: "2025-09-06T00:00:00Z"
-publication_types: ["article"]
+date: "2026-01-01T00:00:00Z"
+publishDate: "2026-01-01T00:00:00Z"
+publication_types: ["paper-conference"]
 publication:
-  name: "IEEE Xplore, document 11575262"
+  name: "IFAC World Congress"
 peer_reviewed: true
 open_access: true
 tags:
@@ -20,8 +20,6 @@ hugoblox:
   ids:
     arxiv: "2509.05853"
 links:
-  - name: IEEE Xplore
-    url: "https://ieeexplore.ieee.org/document/11575262"
   - name: arXiv
     url: "https://arxiv.org/abs/2509.05853"
   - type: custom

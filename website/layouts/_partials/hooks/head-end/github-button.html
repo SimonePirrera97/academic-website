@@ -13,7 +13,7 @@
   :root {
     --standard-page-width: min(92vw, 64rem);
     --experience-panel-width: min(84vw, 56rem);
-    --skills-panel-width: min(92vw, 46rem);
+    --skills-panel-width: min(92vw, 64rem);
     --page-top-gap: 2.25rem;
     --title-content-gap: 2rem;
     --section-gap: 2rem;
@@ -118,6 +118,13 @@
     margin: 0 auto var(--section-gap);
     justify-items: center;
     justify-self: center;
+  }
+
+  .papers-accordion-control,
+  .project-panel-list {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .experience-page #section-resume-experience,
@@ -481,37 +488,37 @@
 
   .experience-page #section-resume-skills .resume-skills-groups {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, max-content));
+    grid-template-columns: repeat(2, minmax(14rem, 28rem));
     justify-content: center;
     align-items: start;
-    column-gap: clamp(2rem, 7vw, 4.5rem);
+    column-gap: clamp(1.5rem, 5vw, 3rem);
     row-gap: 1.5rem;
     width: 100%;
   }
 
   .experience-page #section-resume-skills .resume-skill-group {
-    width: max-content;
-    max-width: min(18rem, 100%);
+    width: 100%;
+    max-width: 28rem;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
 
   .experience-page #section-resume-skills .resume-skill-group--programming {
-    justify-self: end;
+    justify-self: stretch;
   }
 
   .experience-page #section-resume-skills .resume-skill-group--hobbies {
-    justify-self: start;
+    justify-self: stretch;
   }
 
   @media (max-width: 767px) {
     .experience-page #section-resume-skills .resume-skills-groups {
-      grid-template-columns: minmax(0, max-content);
-      justify-content: start;
+      grid-template-columns: minmax(0, min(100%, 28rem));
+      justify-content: center;
     }
 
     .experience-page #section-resume-skills .resume-skill-group {
-      justify-self: start;
+      justify-self: stretch;
     }
   }
 
@@ -892,15 +899,14 @@
       {
         name: 'Wave Energy Converters',
         total: '1 paper',
-        counts: '1 journal · 0 conferences · 0 preprints',
+        counts: '0 journals · 1 conference · 0 preprints',
         papers: [
           {
             title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
             authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'IEEE Xplore \u00b7 2026',
+            meta: 'IFAC World Congress \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
-              ['IEEE Xplore', 'https://ieeexplore.ieee.org/document/11575262'],
               ['arXiv', 'https://arxiv.org/abs/2509.05853']
             ],
             abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
@@ -910,15 +916,14 @@
       {
         name: 'Optimal and Robust Control',
         total: '5 papers',
-        counts: '2 journals · 1 conference · 2 preprints',
+        counts: '2 journals · 2 conferences · 1 preprint',
         papers: [
           {
             title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
             authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'IEEE Xplore \u00b7 2026',
+            meta: 'IFAC World Congress \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
-              ['IEEE Xplore', 'https://ieeexplore.ieee.org/document/11575262'],
               ['arXiv', 'https://arxiv.org/abs/2509.05853']
             ],
             abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
@@ -936,9 +941,10 @@
           {
             title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
             authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'Preprint on arXiv \u00b7 2025',
+            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
+              ['DOI', 'https://ieeexplore.ieee.org/document/11575262'],
               ['arXiv', 'https://arxiv.org/abs/2509.02102']
             ],
             abstract: 'This paper presents a robust load disturbance rejection method for DC-DC buck converters based on two nested feedback loops. The outer loop is designed with H-infinity optimal control and analyzed through mu-analysis for robust stability, while the inner loop introduces a load estimation-compensation scheme. Numerical and experimental results show improved disturbance rejection over common buck converter control approaches.'
@@ -1085,7 +1091,7 @@
       {
         name: 'Electronic Systems',
         total: '2 papers',
-        counts: '0 journals · 0 conferences · 2 preprints',
+        counts: '1 journal · 0 conferences · 1 preprint',
         papers: [
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
@@ -1100,9 +1106,10 @@
           {
             title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
             authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'Preprint on arXiv \u00b7 2025',
+            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
+              ['DOI', 'https://ieeexplore.ieee.org/document/11575262'],
               ['arXiv', 'https://arxiv.org/abs/2509.02102']
             ],
             abstract: 'This paper presents a robust load disturbance rejection method for DC-DC buck converters based on two nested feedback loops. The outer loop is designed with H-infinity optimal control and analyzed through mu-analysis for robust stability, while the inner loop introduces a load estimation-compensation scheme. Numerical and experimental results show improved disturbance rejection over common buck converter control approaches.'

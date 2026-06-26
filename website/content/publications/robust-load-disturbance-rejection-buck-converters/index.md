@@ -11,8 +11,8 @@ date: "2025-09-02T00:00:00Z"
 publishDate: "2025-09-02T00:00:00Z"
 publication_types: ["article"]
 publication:
-  name: "arXiv preprint arXiv:2509.02102"
-peer_reviewed: false
+  name: "IEEE Transactions on Control Systems Technology"
+peer_reviewed: true
 open_access: true
 summary: "Google Scholar citations: 2."
 tags:
@@ -25,6 +25,8 @@ hugoblox:
   ids:
     arxiv: "2509.02102"
 links:
+  - name: DOI
+    url: "https://ieeexplore.ieee.org/document/11575262"
   - name: arXiv
     url: "https://arxiv.org/abs/2509.02102"
   - type: custom
