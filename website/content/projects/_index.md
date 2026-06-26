@@ -16,7 +16,10 @@ banner:
     <a class="teaching-course-link" href="/projects/swell/">
       <span class="paper-category-media" style="--topic-image: url('/media/SWELL%20LOGO%20bk.png');" aria-hidden="true"></span>
       <span class="paper-category-body">
-        <span class="paper-category-name">SWELL</span>
+        <span class="teaching-course-head">
+          <span class="paper-category-name">SWELL</span>
+          <span class="teaching-course-years">2026 - 2029</span>
+        </span>
         <span class="paper-category-total">Smart Wave Energy Conversion via Learning and Low-Cost Control</span>
         <span class="paper-category-counts">Marie Sklodowska-Curie Global Postdoctoral Fellowship</span>
         <span class="teaching-course-meta">

@@ -120,8 +120,7 @@
     justify-self: center;
   }
 
-  .papers-accordion-control,
-  .project-panel-list {
+  .papers-accordion-control {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -493,12 +492,16 @@
     align-items: start;
     column-gap: clamp(1.5rem, 5vw, 3rem);
     row-gap: 1.5rem;
-    width: 100%;
+    width: min(100%, var(--skills-panel-width));
+    margin-top: 0.75rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .experience-page #section-resume-skills .resume-skill-group {
     width: 100%;
     max-width: 28rem;
+    margin-top: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
@@ -1261,7 +1264,37 @@
 
     renderTeachingPanel();
 
-    ensurePageHeading('Projects', document.querySelector('.project-panel-list'));
+    const renderProjectsPanel = () => {
+      const existingPanel = document.querySelector('.project-panel-list');
+      if (!existingPanel) return;
+
+      existingPanel.innerHTML = `
+        <article class="teaching-course-panel">
+          <a class="teaching-course-link" href="/projects/swell/">
+            <span class="paper-category-media" style="--topic-image: url('/media/SWELL%20LOGO%20bk.png');" aria-hidden="true"></span>
+            <span class="paper-category-body">
+              <span class="teaching-course-head">
+                <span class="paper-category-name">SWELL</span>
+                <span class="teaching-course-years">2026 - 2029</span>
+              </span>
+              <span class="paper-category-total">Smart Wave Energy Conversion via Learning and Low-Cost Control</span>
+              <span class="paper-category-counts">Marie Sklodowska-Curie Global Postdoctoral Fellowship</span>
+              <span class="teaching-course-meta">
+                <span>Wave energy converters</span>
+                <span>Data-driven model predictive control</span>
+              </span>
+            </span>
+          </a>
+        </article>`;
+
+      const pageBody = document.querySelector('.projects-page .page-body') || existingPanel.closest('.page-body');
+      if (pageBody && existingPanel.parentElement !== pageBody) {
+        pageBody.appendChild(existingPanel);
+      }
+      ensurePageHeading('Projects', existingPanel);
+    };
+
+    renderProjectsPanel();
 
     const robustCourseUrl = 'https://didattica.polito.it/pls/portal30/gap.pkg_guide.viewGap?p_cod_ins=01QYEYP&p_a_acc=2028&p_header=S&p_lang=IT&multi=N';
     document.querySelectorAll('a[href="/courses/laboratory-robust-identification-control/"], a[href$="/courses/laboratory-robust-identification-control/"]').forEach((link) => {
@@ -1332,10 +1365,18 @@
         programmingGroup.classList.add('resume-skill-group', 'resume-skill-group--programming');
         hobbiesGroup.classList.add('resume-skill-group', 'resume-skill-group--hobbies');
 
-        const groupsWrapper = programmingGroup.parentElement === hobbiesGroup.parentElement
+        let groupsWrapper = programmingGroup.parentElement === hobbiesGroup.parentElement
           ? programmingGroup.parentElement
-          : null;
-        groupsWrapper?.classList.add('resume-skills-groups');
+          : skillsSection.querySelector('.resume-skills-groups');
+
+        if (!groupsWrapper) {
+          groupsWrapper = document.createElement('div');
+          groupsWrapper.className = 'resume-skills-groups';
+          programmingGroup.parentElement.insertBefore(groupsWrapper, programmingGroup);
+          groupsWrapper.append(programmingGroup, hobbiesGroup);
+        } else {
+          groupsWrapper.classList.add('resume-skills-groups');
+        }
       }
     }
   });
