@@ -90,10 +90,26 @@
 
   .teaching-page #courses {
     display: grid;
+    align-content: start;
     justify-items: center;
     width: 100%;
     margin-top: 0 !important;
     padding-top: 0 !important;
+    padding-bottom: clamp(5rem, 12vh, 10rem);
+    min-height: auto !important;
+  }
+
+  .teaching-page #courses > *,
+  .projects-page .page-body > * {
+    align-self: start;
+    min-height: 0 !important;
+  }
+
+  .teaching-page .page-body,
+  .projects-page .page-body {
+    align-content: start;
+    padding-bottom: clamp(5rem, 12vh, 10rem);
+    min-height: auto !important;
   }
 
   .standard-layout-page h1,
@@ -915,12 +931,12 @@
       {
         name: 'Constrained Optimization',
         total: '7 papers',
-        counts: '1 journal · 3 conferences · 3 preprints',
+        counts: '2 journals · 3 conferences · 2 preprints',
         papers: [
           {
             title: 'Global Convergence of Control-Based Lagrangian Flows for Non-Convex Optimization',
             authors: 'Simone Pirrera, Francesco Ripa, Daniele Astolfi, Vito Cerone, Sophie M. Fosson, Diego Regruto',
-            meta: 'Preprint on arXiv \u00b7 2026',
+            meta: 'IEEE Control Systems Letters \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:LkGwnXOMwfcC'],
               ['arXiv', 'https://arxiv.org/abs/2605.22486']

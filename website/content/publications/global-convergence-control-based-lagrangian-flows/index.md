@@ -9,10 +9,10 @@ authors:
   - D. Regruto
 date: "2026-05-21T00:00:00Z"
 publishDate: "2026-05-21T00:00:00Z"
-publication_types: ["article"]
+publication_types: ["article-journal"]
 publication:
-  name: "arXiv preprint arXiv:2605.22486"
-peer_reviewed: false
+  name: "IEEE Control Systems Letters"
+peer_reviewed: true
 open_access: true
 tags:
   - Constrained Optimization
