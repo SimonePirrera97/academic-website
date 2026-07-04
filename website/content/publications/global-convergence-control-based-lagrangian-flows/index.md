@@ -24,6 +24,8 @@ hugoblox:
   ids:
     arxiv: "2605.22486"
 links:
+  - name: DOI
+    url: "https://ieeexplore.ieee.org/abstract/document/11592459"
   - name: arXiv
     url: "https://arxiv.org/abs/2605.22486"
   - type: custom
