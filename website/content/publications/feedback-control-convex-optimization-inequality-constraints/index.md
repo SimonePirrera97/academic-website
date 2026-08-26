@@ -25,5 +25,5 @@ links:
     name: Scholar
     url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:UeHWp8X0CEIC"
 projects: []
-slides: ""
+slides: "slides.pdf"
 ---

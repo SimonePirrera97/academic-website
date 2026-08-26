@@ -852,39 +852,31 @@
       anchor.parentNode.insertBefore(heading, anchor);
     };
 
+    const ifacWecPaper = {
+      title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
+      authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
+      meta: 'IFAC World Congress \u00b7 2026',
+      links: [
+        ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
+        ['arXiv', 'https://arxiv.org/abs/2509.05853'],
+        ['Slides', '/publications/single-iteration-mpc-wave-energy-converters/slides.pdf']
+      ],
+      abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
+    };
+
     const paperData = [
       {
         name: 'Wave Energy Converters',
         total: '1 paper',
         counts: '0 journals · 1 conference · 0 preprints',
-        papers: [
-          {
-            title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
-            authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'IFAC World Congress \u00b7 2026',
-            links: [
-              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
-              ['arXiv', 'https://arxiv.org/abs/2509.05853']
-            ],
-            abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
-          }
-        ]
+        papers: [ifacWecPaper]
       },
       {
         name: 'Optimal and Robust Control',
         total: '5 papers',
         counts: '2 journals · 2 conferences · 1 preprint',
         papers: [
-          {
-            title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
-            authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
-            meta: 'IFAC World Congress \u00b7 2026',
-            links: [
-              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
-              ['arXiv', 'https://arxiv.org/abs/2509.05853']
-            ],
-            abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
-          },
+          ifacWecPaper,
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
@@ -992,7 +984,8 @@
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:UeHWp8X0CEIC'],
               ['arXiv', 'https://arxiv.org/abs/2409.07168'],
-              ['DOI', 'https://doi.org/10.1109/cdc56724.2024.10885825']
+              ['DOI', 'https://doi.org/10.1109/cdc56724.2024.10885825'],
+              ['Slides', '/publications/feedback-control-convex-optimization-inequality-constraints/slides.pdf']
             ],
             abstract: 'This paper proposes a continuous-time algorithm for inequality-constrained convex optimization inspired by proportional-integral control. Its proportional term acts on the primal variable through the Lagrange multipliers, simplifying the proof of exponential convergence for smooth strongly convex problems and improving convergence speed in numerical examples compared with primal-dual gradient dynamics.'
           },
@@ -1003,7 +996,8 @@
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:d1gkVwhDpl0C'],
               ['arXiv', 'https://arxiv.org/abs/2502.01439'],
-              ['DOI', 'https://doi.org/10.23919/ecc57647.2023.10178190']
+              ['DOI', 'https://doi.org/10.23919/ecc57647.2023.10178190'],
+              ['Slides', '/publications/admm-polynomial-optimization/slides.pdf']
             ],
             abstract: 'This paper studies polynomial optimization through a local minimization approach based on the alternating direction method of multipliers. Motivated by the complexity of global semidefinite relaxations, it develops an ADMM algorithm tailored to polynomial optimization, proves convergence, and evaluates the method against state-of-the-art approaches on a numerical example.'
           }

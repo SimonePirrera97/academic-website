@@ -27,5 +27,5 @@ links:
     url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C"
 projects:
   - swell
-slides: ""
+slides: "slides.pdf"
 ---
