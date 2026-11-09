@@ -1,5 +1,5 @@
 ---
-title: "A constrained optimization approach to nonlinear system identification through simulation error minimization"
+title: "Vanishing-gradient-free nonlinear system identification through constrained simulation-error minimisation"
 authors:
   - V. Cerone
   - S. M. Fosson

@@ -587,38 +587,133 @@
     line-height: 1.55;
   }
 
-  /* Paper categories: two-column cards, full-width image with text below */
+  /* Paper categories: grouped three-column cards; the paper list opens below the row of the clicked card */
   .papers-accordion-control {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
+    display: block;
     justify-items: stretch;
   }
 
-  .papers-accordion-control .paper-category-trigger {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-    align-items: start;
+  .papers-accordion-control > .paper-group-label,
+  .papers-accordion-control > .paper-category-grid {
+    width: 100%;
+    justify-self: stretch;
+    text-align: left;
   }
 
-  .papers-accordion-control .paper-category-panel.is-open {
-    grid-column: 1 / -1;
-  }
-
-  .papers-accordion-control .paper-category-panel.is-open .paper-category-trigger {
-    grid-template-columns: minmax(10rem, 18rem) minmax(0, 1fr);
+  .paper-group-label {
+    display: flex;
     align-items: center;
+    gap: 0.8rem;
+    margin: 1.4rem 0 0.9rem;
+    color: rgb(63 85 105);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
-  @media (max-width: 720px) {
-    .papers-accordion-control {
+  .paper-group-label:first-child {
+    margin-top: 0;
+  }
+
+  .paper-group-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgb(0 123 161 / 0.25);
+  }
+
+  .paper-category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .paper-category-grid .paper-category-trigger {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    align-items: start;
+    height: 100%;
+    padding: 0.85rem;
+  }
+
+  .paper-category-grid .paper-category-name {
+    font-size: 1.15rem;
+  }
+
+  .paper-category-grid .paper-category-panel {
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .paper-category-grid .paper-category-panel:hover {
+    transform: translateY(-2px);
+  }
+
+  .paper-category-detail {
+    grid-column: 1 / -1;
+    position: relative;
+    margin-top: 0.15rem;
+    border: 1px solid rgb(239 123 2 / 0.5);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.95);
+    box-shadow: 0 16px 34px rgb(0 40 75 / 0.12);
+    padding: 1rem 1rem 0;
+  }
+
+  .paper-category-detail::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: var(--caret, 50%);
+    width: 16px;
+    height: 16px;
+    border-left: 1px solid rgb(239 123 2 / 0.5);
+    border-top: 1px solid rgb(239 123 2 / 0.5);
+    background: inherit;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .paper-category-detail h3 {
+    margin: 0 0 0.8rem;
+    color: rgb(0 40 75);
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  .paper-category-detail .paper-category-list {
+    padding: 0 0 1rem;
+  }
+
+  .dark .paper-category-detail {
+    border-color: rgb(239 123 2 / 0.45);
+    background: rgb(0 40 75);
+  }
+
+  .dark .paper-category-detail h3 {
+    color: rgb(230 244 248);
+  }
+
+  .dark .paper-group-label {
+    color: rgb(202 224 232);
+  }
+
+  .dark .paper-group-label::after {
+    background: rgb(150 218 234 / 0.3);
+  }
+
+  @media (max-width: 860px) {
+    .paper-category-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .paper-category-grid {
       grid-template-columns: 1fr;
     }
 
-    .papers-accordion-control .paper-category-panel.is-open .paper-category-trigger {
-      grid-template-columns: 1fr;
-    }
-
-    .papers-accordion-control .paper-category-media {
+    .paper-category-grid .paper-category-media {
       max-width: none;
     }
   }
@@ -917,10 +1012,9 @@
       },
       {
         name: 'Optimal and Robust Control',
-        total: '5 papers',
+        total: '3 papers',
         image: '/media/categories/optimal-robust-control.png',
         papers: [
-          ifacWecPaper,
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
@@ -931,17 +1025,6 @@
               ['arXiv', 'https://arxiv.org/abs/2509.05463']
             ],
             abstract: 'This paper proposes an approach for designing analog electronic circuits that implement model predictive control policies for affine plants. It combines reduced-complexity explicit MPC methods to obtain a circuit using limited, low-latency, commercially available components. The design is applied to DC-DC buck converters, with stability analysis and simulations showing strong load disturbance rejection performance.'
-          },
-          {
-            title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
-            authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2026',
-            links: [
-              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:roLk4NBRz8UC'],
-              ['DOI', 'https://doi.org/10.1109/TCST.2026.3701112'],
-              ['arXiv', 'https://arxiv.org/abs/2509.02102']
-            ],
-            abstract: 'This paper presents a robust load disturbance rejection method for DC-DC buck converters based on two nested feedback loops. The outer loop is designed with H-infinity optimal control and analyzed through mu-analysis for robust stability, while the inner loop introduces a load estimation-compensation scheme. Numerical and experimental results show improved disturbance rejection over common buck converter control approaches.'
           },
           {
             title: 'Direct data-driven controller design from bounded errors-in-variables measurements',
@@ -1002,14 +1085,14 @@
             abstract: 'This work develops a control-theoretic framework for constrained optimization problems with composite objective functions that include non-differentiable terms. Using a proximal augmented Lagrangian formulation, it constructs a plant whose equilibria correspond to stationary points and proposes static and dynamic controllers that lead to new optimization algorithms with global exponential convergence under strong convexity assumptions.'
           },
           {
-            title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
+            title: 'Vanishing-gradient-free nonlinear system identification through constrained simulation-error minimisation',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
             meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Tyk-4Ss8FVUC'],
               ['arXiv', 'https://arxiv.org/abs/2509.01461']
             ],
-            abstract: 'This paper formulates nonlinear input-output system identification through simulation error minimization as a constrained optimization problem. The method addresses vanishing-gradient issues and uses feedback-linearization controlled multipliers optimization. The paper proves local convergence and shows, through numerical experiments, improved computational effort and accuracy compared with gradient-based methods.'
+            abstract: 'This paper addresses simulation-error identification of nonlinear input-output models by framing it as a constrained optimisation task. The proposed formulation removes the recursive composition of derivatives that generates the vanishing and exploding gradient issues. It presents an algorithm based on feedback linearisation control of Lagrange multipliers, proves convergence to a local minimum, and derives the exact operation count and memory footprint of one iteration, showing how the sparsity induced by the model structure is exploited. Numerical experiments on four benchmark problems show fewer iterations and favourable estimation accuracy compared with gradient-based methods at comparable total training time.'
           },
           {
             title: 'A new framework for constrained optimization via feedback control of Lagrange multipliers',
@@ -1065,14 +1148,14 @@
         papers: [
           passiveSysIdPaper,
           {
-            title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
+            title: 'Vanishing-gradient-free nonlinear system identification through constrained simulation-error minimisation',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
             meta: 'Preprint on arXiv \u00b7 2025',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Tyk-4Ss8FVUC'],
               ['arXiv', 'https://arxiv.org/abs/2509.01461']
             ],
-            abstract: 'This paper formulates nonlinear input-output system identification through simulation error minimization as a constrained optimization problem. The method addresses vanishing-gradient issues and uses feedback-linearization controlled multipliers optimization. The paper proves local convergence and shows, through numerical experiments, improved computational effort and accuracy compared with gradient-based methods.'
+            abstract: 'This paper addresses simulation-error identification of nonlinear input-output models by framing it as a constrained optimisation task. The proposed formulation removes the recursive composition of derivatives that generates the vanishing and exploding gradient issues. It presents an algorithm based on feedback linearisation control of Lagrange multipliers, proves convergence to a local minimum, and derives the exact operation count and memory footprint of one iteration, showing how the sparsity induced by the model structure is exploited. Numerical experiments on four benchmark problems show fewer iterations and favourable estimation accuracy compared with gradient-based methods at comparable total training time.'
           },
           {
             title: 'Set-membership identification of continuous-time MIMO systems via Tustin discretization',
@@ -1098,9 +1181,10 @@
       },
       {
         name: 'Electronic Systems',
-        total: '2 papers',
+        total: '3 papers',
         image: '/media/categories/electronic-systems.jpg',
         papers: [
+          passiveSysIdPaper,
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
@@ -1127,46 +1211,9 @@
       }
     ];
 
-    const renderPapersPage = () => {
-      const root = document.querySelector('.papers-accordion-control');
-      if (!root || root.dataset.rendered === 'true') return;
-      root.dataset.rendered = 'true';
-      root.textContent = '';
-
-      paperData.forEach((category) => {
-        const panel = document.createElement('section');
-        panel.className = 'paper-category-panel';
-
-        const button = document.createElement('button');
-        button.className = 'paper-category-trigger';
-        button.type = 'button';
-        button.setAttribute('aria-expanded', 'false');
-        button.innerHTML = `
-          <span class="paper-category-media" aria-hidden="true"></span>
-          <span class="paper-category-body">
-            <span class="paper-category-name"></span>
-            <span class="paper-category-total"></span>
-          </span>`;
-        button.querySelector('.paper-category-media').style.setProperty('--topic-image', `url('${category.image}')`);
-        button.querySelector('.paper-category-name').textContent = category.name;
-        button.querySelector('.paper-category-total').innerHTML = `${category.total} <span class="paper-category-action">click to show</span>`;
-
-        button.addEventListener('click', () => {
-          const shouldOpenPanel = !panel.classList.contains('is-open');
-
-          document.querySelectorAll('.paper-category-panel').forEach((otherPanel) => {
-            const isOpen = otherPanel === panel && shouldOpenPanel;
-            otherPanel.classList.toggle('is-open', isOpen);
-
-            const categoryTrigger = otherPanel.querySelector('.paper-category-trigger');
-            categoryTrigger?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            const categoryAction = categoryTrigger?.querySelector('.paper-category-action');
-            if (categoryAction) categoryAction.textContent = isOpen ? 'click to collapse' : 'click to show';
-          });
-        });
-
-        const list = document.createElement('ol');
-        list.className = 'selected-contribution-list paper-category-list';
+    const buildPaperList = (category) => {
+      const list = document.createElement('ol');
+      list.className = 'selected-contribution-list paper-category-list';
 
         category.papers.forEach((paper) => {
           const item = document.createElement('li');
@@ -1223,10 +1270,109 @@
           list.appendChild(item);
         });
 
-        panel.appendChild(button);
-        panel.appendChild(list);
-        root.appendChild(panel);
+      return list;
+    };
+
+    const paperGroups = [
+      ['Methods', ['Constrained Optimization', 'Optimal and Robust Control', 'Dynamical Systems Learning']],
+      ['Applications', ['Electronic Systems', 'Wave Energy Converters']]
+    ];
+
+    const renderPapersPage = () => {
+      const root = document.querySelector('.papers-accordion-control');
+      if (!root || root.dataset.rendered === 'true') return;
+      root.dataset.rendered = 'true';
+      root.textContent = '';
+
+      const byName = Object.fromEntries(paperData.map((category) => [category.name, category]));
+      const grouped = new Set(paperGroups.flatMap(([, names]) => names));
+      const groups = paperGroups.map(([label, names]) => [label, names.filter((name) => byName[name])]);
+      const ungrouped = paperData.map((category) => category.name).filter((name) => !grouped.has(name));
+      if (ungrouped.length) groups.push(['', ungrouped]);
+
+      let activePanel = null;
+      let detail = null;
+
+      const placeDetail = () => {
+        if (!activePanel || !detail) return;
+        const grid = activePanel.parentElement;
+        const panels = [...grid.querySelectorAll(':scope > .paper-category-panel')];
+        const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length || 1;
+        const index = panels.indexOf(activePanel);
+        const rowEnd = panels[Math.min(panels.length - 1, Math.floor(index / columns) * columns + columns - 1)];
+        rowEnd.after(detail);
+        const gridBox = grid.getBoundingClientRect();
+        const panelBox = activePanel.getBoundingClientRect();
+        detail.style.setProperty('--caret', `${panelBox.left - gridBox.left + panelBox.width / 2}px`);
+      };
+
+      const setPanelState = (panel, isOpen) => {
+        panel.classList.toggle('is-open', isOpen);
+        const trigger = panel.querySelector('.paper-category-trigger');
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        trigger.querySelector('.paper-category-action').textContent = isOpen ? 'click to collapse' : 'click to show';
+      };
+
+      const closeDetail = () => {
+        if (activePanel) setPanelState(activePanel, false);
+        detail?.remove();
+        activePanel = null;
+        detail = null;
+      };
+
+      groups.forEach(([label, names]) => {
+        if (label) {
+          const groupLabel = document.createElement('div');
+          groupLabel.className = 'paper-group-label';
+          groupLabel.textContent = label;
+          root.appendChild(groupLabel);
+        }
+
+        const grid = document.createElement('div');
+        grid.className = 'paper-category-grid';
+        root.appendChild(grid);
+
+        names.forEach((name) => {
+          const category = byName[name];
+          const panel = document.createElement('section');
+          panel.className = 'paper-category-panel';
+
+          const button = document.createElement('button');
+          button.className = 'paper-category-trigger';
+          button.type = 'button';
+          button.setAttribute('aria-expanded', 'false');
+          button.innerHTML = `
+            <span class="paper-category-media" aria-hidden="true"></span>
+            <span class="paper-category-body">
+              <span class="paper-category-name"></span>
+              <span class="paper-category-total"></span>
+            </span>`;
+          button.querySelector('.paper-category-media').style.setProperty('--topic-image', `url('${category.image}')`);
+          button.querySelector('.paper-category-name').textContent = category.name;
+          button.querySelector('.paper-category-total').innerHTML = `${category.total} <span class="paper-category-action">click to show</span>`;
+
+          button.addEventListener('click', () => {
+            const wasOpen = activePanel === panel;
+            closeDetail();
+            if (wasOpen) return;
+
+            activePanel = panel;
+            setPanelState(panel, true);
+            detail = document.createElement('section');
+            detail.className = 'paper-category-detail';
+            const heading = document.createElement('h3');
+            heading.textContent = `${category.name} \u00b7 ${category.total}`;
+            detail.appendChild(heading);
+            detail.appendChild(buildPaperList(category));
+            placeDetail();
+          });
+
+          panel.appendChild(button);
+          grid.appendChild(panel);
+        });
       });
+
+      window.addEventListener('resize', placeDetail);
     };
 
     renderPapersPage();
