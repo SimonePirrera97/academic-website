@@ -57,6 +57,11 @@ education:
       <a class="academic-download-button" href="/uploads/master_thesis.pdf" download>Download Master thesis</a>
 
 experience:
+  - role: Visiting Research Fellow
+    org: School of Earth and Oceans, The University of Western Australia
+    start: 2026-11-05
+    summary: |
+      Outgoing phase of the SWELL Marie Sklodowska-Curie Global Fellowship, hosted by Prof. Hugh Wolgamot.
   - role: Marie Sklodowska-Curie Global Postdoctoral Fellow
     org: Department of Control and Computer Engineering (DAUIN), Politecnico di Torino
     start: 2026-06-16

@@ -718,6 +718,31 @@
     }
   }
 
+  /* Institution logos in the Experience / Education timeline */
+  .experience-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .experience-logo {
+    flex: 0 0 auto;
+    height: 3.1rem;
+    width: 7.5rem;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #fff;
+    padding: 0.3rem 0.45rem;
+    box-shadow: 0 0 0 1px rgb(0 123 161 / 0.12);
+  }
+
+  @media (max-width: 560px) {
+    .experience-logo {
+      height: 2.5rem;
+      width: 6rem;
+    }
+  }
+
   @media (max-width: 640px) {
     .paper-category-trigger,
     .teaching-course-link {
@@ -1414,6 +1439,33 @@
     };
 
     renderTeachingPanel();
+
+    const institutionLogos = [
+      ['University of Western Australia', '/media/logos/uwa.png', 'The University of Western Australia'],
+      ['Politecnico di Torino', '/media/logos/polito.png', 'Politecnico di Torino']
+    ];
+
+    const addExperienceLogos = () => {
+      document.querySelectorAll('#section-resume-experience h3').forEach((title) => {
+        const header = title.parentElement;
+        if (!header || header.parentElement?.classList.contains('experience-logo-row')) return;
+        const orgText = header.querySelector('p')?.textContent || '';
+        const match = institutionLogos.find(([key]) => orgText.includes(key));
+        if (!match) return;
+        const row = document.createElement('div');
+        row.className = 'experience-logo-row';
+        const logo = document.createElement('img');
+        logo.className = 'experience-logo';
+        logo.src = match[1];
+        logo.alt = match[2];
+        logo.loading = 'lazy';
+        header.parentElement.insertBefore(row, header);
+        row.appendChild(logo);
+        row.appendChild(header);
+      });
+    };
+
+    addExperienceLogos();
 
     const renderProjectsPanel = () => {
       const existingPanel = document.querySelector('.project-panel-list');
