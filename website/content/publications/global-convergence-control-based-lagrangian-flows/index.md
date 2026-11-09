@@ -11,7 +11,8 @@ date: "2026-05-21T00:00:00Z"
 publishDate: "2026-05-21T00:00:00Z"
 publication_types: ["article-journal"]
 publication:
-  name: "IEEE Control Systems Letters"
+  name: "IEEE Control Systems Letters, vol. 10 (joint submission with the 2026 IEEE 65th Conference on Decision and Control (CDC), Honolulu, HI, USA, December 15-18, 2026)"
+  pages: "1681-1686"
 peer_reviewed: true
 open_access: true
 tags:
@@ -25,7 +26,7 @@ hugoblox:
     arxiv: "2605.22486"
 links:
   - name: DOI
-    url: "https://ieeexplore.ieee.org/abstract/document/11592459"
+    url: "https://doi.org/10.1109/LCSYS.2026.3709153"
   - name: arXiv
     url: "https://arxiv.org/abs/2605.22486"
   - type: custom

@@ -7,12 +7,12 @@ authors:
   - D. Regruto
   - A. Rizzo
   - G. Setti
-date: "2025-09-05T00:00:00Z"
-publishDate: "2025-09-05T00:00:00Z"
-publication_types: ["article"]
+date: "2026-10-30T00:00:00Z"
+publishDate: "2026-10-30T00:00:00Z"
+publication_types: ["article-journal"]
 publication:
-  name: "arXiv preprint arXiv:2509.05463"
-peer_reviewed: false
+  name: "IEEE Transactions on Control Systems Technology"
+peer_reviewed: true
 open_access: true
 summary: "Google Scholar citations: 2."
 tags:
@@ -24,6 +24,8 @@ hugoblox:
   ids:
     arxiv: "2509.05463"
 links:
+  - name: DOI
+    url: "https://ieeexplore.ieee.org/abstract/document/11769671"
   - name: arXiv
     url: "https://arxiv.org/abs/2509.05463"
   - type: custom
