@@ -11,7 +11,7 @@ date: "2026-10-30T00:00:00Z"
 publishDate: "2026-10-30T00:00:00Z"
 publication_types: ["article-journal"]
 publication:
-  name: "IEEE Transactions on Control Systems Technology"
+  name: "IEEE Transactions on Control Systems Technology (Early Access)"
 peer_reviewed: true
 open_access: true
 summary: "Google Scholar citations: 2."
@@ -25,7 +25,7 @@ hugoblox:
     arxiv: "2509.05463"
 links:
   - name: DOI
-    url: "https://ieeexplore.ieee.org/abstract/document/11769671"
+    url: "https://doi.org/10.1109/TCST.2026.3744984"
   - name: arXiv
     url: "https://arxiv.org/abs/2509.05463"
   - type: custom

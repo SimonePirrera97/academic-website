@@ -587,6 +587,42 @@
     line-height: 1.55;
   }
 
+  /* Paper categories: two-column cards, full-width image with text below */
+  .papers-accordion-control {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    justify-items: stretch;
+  }
+
+  .papers-accordion-control .paper-category-trigger {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    align-items: start;
+  }
+
+  .papers-accordion-control .paper-category-panel.is-open {
+    grid-column: 1 / -1;
+  }
+
+  .papers-accordion-control .paper-category-panel.is-open .paper-category-trigger {
+    grid-template-columns: minmax(10rem, 18rem) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  @media (max-width: 720px) {
+    .papers-accordion-control {
+      grid-template-columns: 1fr;
+    }
+
+    .papers-accordion-control .paper-category-panel.is-open .paper-category-trigger {
+      grid-template-columns: 1fr;
+    }
+
+    .papers-accordion-control .paper-category-media {
+      max-width: none;
+    }
+  }
+
   @media (max-width: 640px) {
     .paper-category-trigger,
     .teaching-course-link {
@@ -854,7 +890,7 @@
 
     const ifacWecPaper = {
       title: 'Real-Time Single-Iteration Model Predictive Control for Wave Energy Converters',
-      authors: 'Simone Pirrera, Nicolas Faedo, Sophie M. Fosson, Diego Regruto',
+      authors: 'Simone Pirrera, Nicol\u00e1s Faedo, Sophie M. Fosson, Diego Regruto',
       meta: 'IFAC World Congress \u00b7 2026',
       links: [
         ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:YsMSGLbcyi4C'],
@@ -864,25 +900,34 @@
       abstract: 'This paper proposes a real-time algorithm for controlling wave energy converters. Starting from an economic MPC formulation, it uses a first-order optimization algorithm inspired by control-based constrained optimization to define single-iteration MPC controller dynamics. The paper analyzes convergence and computational complexity, and simulations on a benchmark wave energy converter show improved performance over standard MPC through faster sampling.'
     };
 
+    const passiveSysIdPaper = {
+      title: 'Passive System Identification from Frequency-Domain Data via Alternating Minimization',
+      authors: 'Simone Pirrera, Nicol\u00e1s Faedo, Diego Regruto',
+      meta: 'IEEE Conference on Decision and Control \u00b7 2026',
+      links: [],
+      abstract: 'This paper addresses frequency-domain system identification of multivariable linear time-invariant systems known to be passive. Standard methods do not enforce passivity and may return physically inconsistent models. The paper proposes a two-step algorithm based on the alternating direction method of multipliers that fits frequency-domain data while guaranteeing passivity, estimates both poles and zeros, and provides a certified passive model at every iteration.'
+    };
+
     const paperData = [
       {
         name: 'Wave Energy Converters',
-        total: '1 paper',
-        counts: '0 journals · 1 conference · 0 preprints',
-        papers: [ifacWecPaper]
+        total: '2 papers',
+        image: '/media/categories/wave-energy-converters.jpg',
+        papers: [passiveSysIdPaper, ifacWecPaper]
       },
       {
         name: 'Optimal and Robust Control',
         total: '5 papers',
-        counts: '2 journals · 2 conferences · 1 preprint',
+        image: '/media/categories/optimal-robust-control.png',
         papers: [
           ifacWecPaper,
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
-            meta: 'Preprint on arXiv \u00b7 2025',
+            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC'],
+              ['DOI', 'https://doi.org/10.1109/TCST.2026.3744984'],
               ['arXiv', 'https://arxiv.org/abs/2509.05463']
             ],
             abstract: 'This paper proposes an approach for designing analog electronic circuits that implement model predictive control policies for affine plants. It combines reduced-complexity explicit MPC methods to obtain a circuit using limited, low-latency, commercially available components. The design is applied to DC-DC buck converters, with stability analysis and simulations showing strong load disturbance rejection performance.'
@@ -890,10 +935,10 @@
           {
             title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
             authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2025',
+            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2026',
             links: [
-              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
-              ['DOI', 'https://ieeexplore.ieee.org/document/11575262'],
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:roLk4NBRz8UC'],
+              ['DOI', 'https://doi.org/10.1109/TCST.2026.3701112'],
               ['arXiv', 'https://arxiv.org/abs/2509.02102']
             ],
             abstract: 'This paper presents a robust load disturbance rejection method for DC-DC buck converters based on two nested feedback loops. The outer loop is designed with H-infinity optimal control and analyzed through mu-analysis for robust stability, while the inner loop introduces a load estimation-compensation scheme. Numerical and experimental results show improved disturbance rejection over common buck converter control approaches.'
@@ -922,16 +967,26 @@
       },
       {
         name: 'Constrained Optimization',
-        total: '7 papers',
-        counts: '2 journals · 3 conferences · 2 preprints',
+        total: '8 papers',
+        image: '/media/categories/constrained-optimization.png',
         papers: [
+          {
+            title: 'Discrete-time feedback linearization control for nonsmooth constrained optimization',
+            authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Alice Re, Diego Regruto',
+            meta: 'IEEE Conference on Decision and Control \u00b7 2026',
+            links: [
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:UebtZRa9Y70C'],
+              ['arXiv', 'https://arxiv.org/abs/2609.29799']
+            ],
+            abstract: 'This paper proposes a discrete-time feedback linearization control approach to nonsmooth linearly constrained composite optimization problems. Using proximal operators, it builds a dynamical system whose equilibria are the stationary points of the problem, and treats the Lagrange multipliers as control inputs steered by feedback linearization. Convergence is analyzed under strong convexity and under the Polyak-Lojasiewicz condition, and numerical experiments illustrate the approach.'
+          },
           {
             title: 'Global Convergence of Control-Based Lagrangian Flows for Non-Convex Optimization',
             authors: 'Simone Pirrera, Francesco Ripa, Daniele Astolfi, Vito Cerone, Sophie M. Fosson, Diego Regruto',
-            meta: 'IEEE Control Systems Letters \u00b7 2026',
+            meta: 'IEEE Control Systems Letters (joint submission with IEEE CDC 2026) \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:LkGwnXOMwfcC'],
-              ['DOI', 'https://ieeexplore.ieee.org/abstract/document/11592459'],
+              ['DOI', 'https://doi.org/10.1109/LCSYS.2026.3709153'],
               ['arXiv', 'https://arxiv.org/abs/2605.22486']
             ],
             abstract: 'This paper studies continuous-time dynamics for equality-constrained optimization based on control-theoretic Lagrangian methods. It considers dynamics induced by proportional-integral and feedback-linearization controllers, and proves global exponential convergence for non-convex problems satisfying a suitable convexity property on the constraint manifold.'
@@ -1005,9 +1060,10 @@
       },
       {
         name: 'Dynamical Systems Learning',
-        total: '3 papers',
-        counts: '0 journals · 1 conference · 2 preprints',
+        total: '4 papers',
+        image: '/media/categories/dynamical-systems-learning.png',
         papers: [
+          passiveSysIdPaper,
           {
             title: 'A constrained optimization approach to nonlinear system identification through simulation error minimization',
             authors: 'Vito Cerone, Sophie M. Fosson, Simone Pirrera, Diego Regruto',
@@ -1043,14 +1099,15 @@
       {
         name: 'Electronic Systems',
         total: '2 papers',
-        counts: '1 journal · 0 conferences · 1 preprint',
+        image: '/media/categories/electronic-systems.jpg',
         papers: [
           {
             title: 'A Fully Analog Implementation of Model Predictive Control with Application to Buck Converters',
             authors: 'Simone Pirrera, Lorenzo Calogero, Francesco Gabriele, Diego Regruto, Alessandro Rizzo, Gianluca Setti',
-            meta: 'Preprint on arXiv \u00b7 2025',
+            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2026',
             links: [
               ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:W7OEmFMy1HYC'],
+              ['DOI', 'https://doi.org/10.1109/TCST.2026.3744984'],
               ['arXiv', 'https://arxiv.org/abs/2509.05463']
             ],
             abstract: 'This paper proposes an approach for designing analog electronic circuits that implement model predictive control policies for affine plants. It combines reduced-complexity explicit MPC methods to obtain a circuit using limited, low-latency, commercially available components. The design is applied to DC-DC buck converters, with stability analysis and simulations showing strong load disturbance rejection performance.'
@@ -1058,10 +1115,10 @@
           {
             title: 'Robust Load Disturbance Rejection in PWM DC-DC Buck Converters',
             authors: 'Simone Pirrera, Francesco Gabriele, Davide Lena, Fabio Pareschi, Diego Regruto, Gianluca Setti',
-            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2025',
+            meta: 'IEEE Transactions on Control Systems Technology \u00b7 2026',
             links: [
-              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:Y0pCki6q_DkC'],
-              ['DOI', 'https://ieeexplore.ieee.org/document/11575262'],
+              ['Scholar', 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=06HHufQAAAAJ&citation_for_view=06HHufQAAAAJ:roLk4NBRz8UC'],
+              ['DOI', 'https://doi.org/10.1109/TCST.2026.3701112'],
               ['arXiv', 'https://arxiv.org/abs/2509.02102']
             ],
             abstract: 'This paper presents a robust load disturbance rejection method for DC-DC buck converters based on two nested feedback loops. The outer loop is designed with H-infinity optimal control and analyzed through mu-analysis for robust stability, while the inner loop introduces a load estimation-compensation scheme. Numerical and experimental results show improved disturbance rejection over common buck converter control approaches.'
@@ -1085,15 +1142,14 @@
         button.type = 'button';
         button.setAttribute('aria-expanded', 'false');
         button.innerHTML = `
-          <span class="paper-category-media" style="--topic-image: url('/publications/preprint/featured.jpg');" aria-hidden="true"></span>
+          <span class="paper-category-media" aria-hidden="true"></span>
           <span class="paper-category-body">
             <span class="paper-category-name"></span>
             <span class="paper-category-total"></span>
-            <span class="paper-category-counts"></span>
           </span>`;
+        button.querySelector('.paper-category-media').style.setProperty('--topic-image', `url('${category.image}')`);
         button.querySelector('.paper-category-name').textContent = category.name;
         button.querySelector('.paper-category-total').innerHTML = `${category.total} <span class="paper-category-action">click to show</span>`;
-        button.querySelector('.paper-category-counts').textContent = category.counts;
 
         button.addEventListener('click', () => {
           const shouldOpenPanel = !panel.classList.contains('is-open');
